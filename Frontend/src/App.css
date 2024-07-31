@@ -1,0 +1,13 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.main {
+    min-height: 100vh; /* Esto asegura que el contenedor principal ocupe al menos toda la altura del viewport */
+    background-color: black; /* Esto asegura que el fondo negro cubra todo el contenedor */
+}
+.main * {
+    margin: 0;
+    padding: 0;
+}
