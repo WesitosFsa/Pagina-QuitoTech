@@ -3,22 +3,22 @@ import consolas from '../assets/consolas.webp';
 import videojuegos from '../assets/videojuegos.webp';
 import perifericos from '../assets/perifericos.jpg';
 import componentes from '../assets/componentes.jpg';
-import sillasGaming from '../assets/sillasgamer.jpg';  // Asegúrate de agregar la imagen correspondiente
-import refrigeracion from '../assets/refrigeracion.webp'; // Asegúrate de agregar la imagen correspondiente
-import monitores from '../assets/monitores.webp';       // Asegúrate de agregar la imagen correspondiente
-import audio from '../assets/audio.webp';               // Asegúrate de agregar la imagen correspondiente
-import almacenamiento from '../assets/almacenamiento.webp'; // Asegúrate de agregar la imagen correspondiente
+import sillasGaming from '../assets/sillasgamer.jpg';
+import refrigeracion from '../assets/refrigeracion.webp';
+import monitores from '../assets/monitores.webp';
+import audio from '../assets/audio.webp';
+import almacenamiento from '../assets/almacenamiento.webp';
 import { useState } from 'react';
 
 export const Productos = () => {
   const [darkMode, setDarkMode] = useState(true);
-  
+
   return (
     <div className={darkMode ? "dark" : ""}>
       <main className='bg-gray-900 px-10 md:px-20 lg:px-40'>
         <section>
           <div>
-            <h3 className='text-3xl py-1 dark:text-white'>Categorias de Productos</h3>
+            <h3 className='text-3xl py-1 dark:text-white'>Categorías de Productos</h3>
             <p className='text-md py-2 leading-8 text-gray-800 dark:text-white'>
               Encuentra las mejores <span className='text-purple-600'>categorías</span> de productos disponibles en nuestra tienda en Quito. 
               <span className='text-purple-600'>Ubicación de las tiendas</span> también disponibles aquí.
@@ -29,7 +29,7 @@ export const Productos = () => {
           </div>
 
           <div className='md:flex md:flex-wrap lg:flex lg:justify-center gap-10'>
-            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600'>
+            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600 transition-transform transform hover:scale-105'>
               <img className='mx-auto' src={mandos} alt="Mandos" />
               <h3 className='text-lg font-medium pt-8 pb-2 text-white'>MANDOS</h3>
               <p className='py-4 text-white'>
@@ -41,7 +41,7 @@ export const Productos = () => {
               <p className='text-white py-1'>Celular</p>
             </div>
 
-            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600'>
+            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600 transition-transform transform hover:scale-105'>
               <img className='mx-auto' src={consolas} alt="Consolas" />
               <h3 className='text-lg font-medium pt-8 pb-2 text-white'>CONSOLAS</h3>
               <p className='py-4 text-white'>
@@ -53,7 +53,7 @@ export const Productos = () => {
               <p className='text-white py-1'>Otras</p>
             </div>
 
-            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600'>
+            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600 transition-transform transform hover:scale-105'>
               <img className='mx-auto' src={videojuegos} alt="Videojuegos" />
               <h3 className='text-lg font-medium pt-8 pb-2 text-white'>VIDEOJUEGOS</h3>
               <p className='py-4 text-white'>
@@ -65,28 +65,28 @@ export const Productos = () => {
               <p className='text-white py-1'>Psicológico</p>
             </div>
 
-            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600'>
+            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600 transition-transform transform hover:scale-105'>
               <img className='mx-auto' src={perifericos} alt="Periféricos" />
-              <h3 className='text-lg font-medium pt-8 pb-2 text-white'>PERIFERICOS</h3>
+              <h3 className='text-lg font-medium pt-8 pb-2 text-white'>PERIFÉRICOS</h3>
               <p className='py-4 text-white'>
                 Mejora tu configuración con nuestra gama de periféricos, desde teclados y ratones hasta auriculares.
               </p>
               <p className='text-white py-1'>Teclados</p>
               <p className='text-white py-1'>Mouses</p>
-              <p className='text-white py-1'>Audriculares</p>
+              <p className='text-white py-1'>Auriculares</p>
               <p className='text-white py-1'>Micrófonos</p>
             </div>
 
-            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600'>
+            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600 transition-transform transform hover:scale-105'>
               <img className='mx-auto' src={componentes} alt="Componentes PC" />
               <h3 className='text-lg font-medium pt-8 pb-2 text-white'>COMPONENTES PC</h3>
               <p className='py-4 text-white'>
                 Encuentra los mejores componentes para personalizar y potenciar tu PC, adaptados a todas tus necesidades.
               </p>
-              <p className='text-white py-1'>Targetas RAM</p>
+              <p className='text-white py-1'>Tarjetas RAM</p>
               <p className='text-white py-1'>Microprocesadores</p>
               <p className='text-white py-1'>Ventiladores</p>
-              <p className='text-white py-1'>Fuente de energia</p>
+              <p className='text-white py-1'>Fuente de Energía</p>
             </div>
           </div>
         </section>
@@ -95,7 +95,7 @@ export const Productos = () => {
           <div>
             <h3 className='text-3xl py-1 dark:text-white'>OTROS</h3>
             <p className='text-md py-2 leading-8 text-gray-800 dark:text-white'>
-              Buscas algo más espécifico, un nuestra sección de otros podrías encontrarlo.
+              Buscas algo más específico, en nuestra sección de otros podrías encontrarlo.
             </p>
             <p className='text-md py-2 leading-8 text-gray-800 dark:text-white'>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, delectus iure <span className='text-white'>quibusdam</span> quas quaerat itaque, est minima ducimus recusandae illo ipsam numquam nam earum libero <span className='text-white'>deleniti</span> voluptatem! Autem, veniam ut.
@@ -103,7 +103,7 @@ export const Productos = () => {
           </div>
 
           <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
-            <div className="text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600">
+            <div className="text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600 transition-transform transform hover:scale-105">
               <img className='mx-auto' src={sillasGaming} alt="Sillas Gaming" />
               <h3 className='text-lg font-medium pt-8 pb-2 text-white'>SILLAS GAMING</h3>
               <p className='py-4 text-white'>
@@ -115,7 +115,7 @@ export const Productos = () => {
               <p className='text-white py-1'>Con Reposabrazos Ajustables</p>
             </div>
 
-            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600'>
+            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600 transition-transform transform hover:scale-105'>
               <img className='mx-auto' src={refrigeracion} alt="Sistemas de Refrigeración" />
               <h3 className='text-lg font-medium pt-8 pb-2 text-white'>SISTEMAS DE REFRIGERACIÓN</h3>
               <p className='py-4 text-white'>
@@ -127,7 +127,7 @@ export const Productos = () => {
               <p className='text-white py-1'>Controladores de Temperatura</p>
             </div>
 
-            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600'>
+            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600 transition-transform transform hover:scale-105'>
               <img className='mx-auto' src={monitores} alt="Monitores" />
               <h3 className='text-lg font-medium pt-8 pb-2 text-white'>MONITORES</h3>
               <p className='py-4 text-white'>
@@ -139,7 +139,7 @@ export const Productos = () => {
               <p className='text-white py-1'>Ultra Anchos</p>
             </div>
 
-            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600'>
+            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600 transition-transform transform hover:scale-105'>
               <img className='mx-auto' src={audio} alt="Sistemas de Audio" />
               <h3 className='text-lg font-medium pt-8 pb-2 text-white'>SISTEMAS DE AUDIO</h3>
               <p className='py-4 text-white'>
@@ -151,7 +151,7 @@ export const Productos = () => {
               <p className='text-white py-1'>Auriculares Gaming</p>
             </div>
 
-            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600'>
+            <div className='text-center shadow-2xl p-10 rounded-xl my-10 md:w-72 lg:w-96 bg-purple-600 transition-transform transform hover:scale-105'>
               <img className='mx-auto' src={almacenamiento} alt="Almacenamiento Externo" />
               <h3 className='text-lg font-medium pt-8 pb-2 text-white'>ALMACENAMIENTO EXTERNO</h3>
               <p className='py-4 text-white'>

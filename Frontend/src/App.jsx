@@ -8,6 +8,8 @@ import { AuthProvider } from '../context/AuthProvider'
 import Auth from './layout/Auth'
 import { PrivateRoute } from './routes/PrivateRoute.jsx'
 import {Forgot} from './pages/Forgot.jsx'
+import { NoEncontrada } from './pages/NoEncontrada.jsx';
+import Restablecer from './pages/Restablecer';
 
 function App() {
   return (
@@ -22,6 +24,9 @@ function App() {
             <Route path='ingresar' element={<Ingresar/>}/>
             <Route path='registrar' element={<Registrar/>}/>
             <Route path='forgot/:id' element={<Forgot/>}/>
+            <Route path='*' element={<NoEncontrada />} />
+            <Route path='recuperar-password/:token' element={<Restablecer />} />
+
         </Route>
 
 

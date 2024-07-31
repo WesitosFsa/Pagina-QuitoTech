@@ -19,7 +19,7 @@ const sendMailToUser = (userMail, token) => {
         from: process.env.USER_MAILTRAP,
         to: userMail,
         subject: "Verifica tu cuenta",
-        html: `<p>Hola, haz clic <a href="${process.env.URL_BACKEND}confirmar/${encodeURIComponent(token)}">aquí</a> para confirmar tu cuenta.</p>`
+        html: `<p>Hola, haz clic <a href="${process.env.URL_FRONTEND}confirmar/${encodeURIComponent(token)}">aquí</a> para confirmar tu cuenta.</p>`
     };
     
 
@@ -37,7 +37,7 @@ const sendMailToUser2 = (userMail, token) => {
         from: process.env.USER_MAILTRAP,
         to: userMail,
         subject: "Verifica tu cuenta",
-        html: `<p>Hola, haz clic <a href="${process.env.URL_BACKEND}usuario/confirmar/${encodeURIComponent(token)}">aquí</a> para confirmar tu cuenta.</p>`
+        html: `<p>Hola, haz clic <a href="${process.env.URL_FRONTEND}usuario/confirmar/${encodeURIComponent(token)}">aquí</a> para confirmar tu cuenta.</p>`
     };
     
 
@@ -55,7 +55,7 @@ const sendMailToAdmin = (userMail, tokentienda) => {
         from: process.env.USER_MAILTRAP,
         to: process.env.USER_MAILTRAP,
         subject: `Tienda de ${userMail}`,
-        html: `<p>Hola, haz clic <a href="${process.env.URL_BACKEND}confirmartienda/${encodeURIComponent(tokentienda)}">aquí</a> para verificar la tienda.</p>`
+        html: `<p>Hola, haz clic <a href="${process.env.URL_FRONTEND}confirmartienda/${encodeURIComponent(tokentienda)}">aquí</a> para verificar la tienda.</p>`
     };
     
 
@@ -128,7 +128,7 @@ const sendMailToRecoveryPassword = async(userMail,token)=>{
         <div class="container">
             <h1>Sistema de Gestión de Tiendas (Tiendas Quito 🛒 🏬)</h1>
             <hr>
-            <a href="${process.env.URL_BACKEND}usuario/recuperar-password/${token}">Clic para reestablecer tu contraseña</a>
+            <a href="${process.env.URL_FRONTEND}usuario/recuperar-password/${token}">Clic para reestablecer tu contraseña</a>
             <hr>
             <footer><b>¡TeamKhaos te da la Bienvenida!</b></footer>
         </div>
@@ -199,7 +199,7 @@ const sendMailToRecoveryPasswordAd = async(userMail,token)=>{
         <div class="container">
             <h1>Sistema de Gestión de Tiendas (Tiendas Quito 🛒 🏬)</h1>
             <hr>
-            <a href="${process.env.URL_BACKEND}/recuperar-password/${token}">Clic para reestablecer tu contraseña</a>
+            <a href="${process.env.URL_FRONTEND}/recuperar-password/${token}">Clic para reestablecer tu contraseña</a>
             <hr>
             <footer><b>¡TeamKhaos te da la Bienvenida!</b></footer>
         </div>
