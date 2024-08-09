@@ -8,8 +8,8 @@ export const Formulario = ({ tienda }) => {
     const [mensaje, setMensaje] = useState({})
 
     const [form, setform] = useState({
-        nombre: tienda?.Nombre_tienda ?? "",
-        direccion: tienda?.Direccion ?? "",
+        Nombre_tienda: tienda?.Nombre_tienda ?? "",
+        Direccion: tienda?.Direccion ?? "",
         email: tienda?.email ?? "",
         userId: localStorage.getItem('id_usuario') || ""
     })
@@ -50,7 +50,7 @@ export const Formulario = ({ tienda }) => {
                     }
                 }
                 await axios.post(url, form, options)
-                setMensaje({ respuesta: "paciente registrado con exito y correo enviado", tipo: true })
+                setMensaje({ respuesta: "La solicitud fue enviada, pronto resiviras una notificacion", tipo: true })
             } catch (error) {
                 console.log(error)
                 // setMensaje({ respuesta: error.response?.data?.msg, tipo: false })
@@ -66,12 +66,12 @@ export const Formulario = ({ tienda }) => {
                     htmlFor='nombre:'
                     className='text-slate-400 uppercase font-bold text-sm'>Nombre de la Tienda: </label>
                 <input
-                    id='nombre'
+                    id='Nombre_tienda'
                     type="text"
                     className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
                     placeholder='nombre de tu tienda'
-                    name='nombre'
-                    value={form.nombre}
+                    name='Nombre_tienda'
+                    value={form.Nombre_tienda}
                     onChange={handleChange}
                 />
             </div>
@@ -80,12 +80,12 @@ export const Formulario = ({ tienda }) => {
                     htmlFor='direccion:'
                     className='text-slate-400 uppercase font-bold text-sm'>Direccion de la tienda: </label>
                 <input
-                    id='direccion'
+                    id='Direccion'
                     type="text"
                     className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
                     placeholder='Direccion de la tienda'
-                    name='direccion'
-                    value={form.direccion}
+                    name='Direccion'
+                    value={form.Direccion}
                     onChange={handleChange}
                 />
             </div>

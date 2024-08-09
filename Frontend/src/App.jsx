@@ -9,6 +9,7 @@ import Auth from './layout/Auth'
 import { PrivateRoute } from './routes/PrivateRoute.jsx'
 import {Forgot} from './pages/Forgot.jsx'
 import { NoEncontrada } from './pages/NoEncontrada.jsx';
+import { Confirmar } from './pages/ConfirmarEmail';
 import Restablecer from './pages/Restablecer';
 import Listar from './pages/Listar.jsx'
 import Crear from './pages/Crear.jsx'
@@ -25,8 +26,8 @@ function App() {
             <Route path='/' element={<Auth/>}>
             <Route path='ingresar' element={<Ingresar/>}/>
             <Route path='registrar' element={<Registrar/>}/>
+            <Route path='usuario/confirmar/:token' element={<Confirmar/>}/>
             <Route path='forgot/:id' element={<Forgot/>}/>
-            <Route path='*' element={<NoEncontrada />} />
             <Route path='recuperar-password/:token' element={<Restablecer />} />
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='dashboard/productos' element={<Productos/>}/>
@@ -34,6 +35,10 @@ function App() {
             <Route path='dashboard/confirmacion' element={<Confirmacion_registro_tienda />} />
             <Route path='dashboard/crear' element={<Crear/>} />
 
+
+
+            {/* siempre al ultimo */}
+            <Route path='*' element={<NoEncontrada />} />
         </Route>
 
 
