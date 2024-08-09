@@ -186,6 +186,9 @@ const solicitarTienda = async(req,res) => {
 
     await sendMailToAdmin(email,tokentienda)
     
+
+    await sendMailToAdmin(email,tokentienda)
+    
     // const tokentienda = variableGlobal
     // await nuevatienda.save()
     res.status(200).json({msg:"Tu solicitud será revisada por nuestros administradores, pronto recibiras una confirmación!!"})

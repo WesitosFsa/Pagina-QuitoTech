@@ -2,33 +2,31 @@ import { useContext, useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import Mensaje from './Alertas';
-export const Formulario = ({paciente}) => {
+export const Formulario = ({ tienda }) => {
 
     const navigate = useNavigate()
     const [mensaje, setMensaje] = useState({})
 
-const [form, setform] = useState({
-        nombre: paciente?.nombre ??"",
-        propietario: paciente?.propietario ??"",
-        email: paciente?.email ??"",
-        celular: paciente?.celular ??"",
-        salida:  new Date(paciente?.salida).toLocaleDateString('en-CA', {timeZone: 'UTC'}) ?? "",
-        convencional: paciente?.convencional ??"",
-        sintomas: paciente?.sintomas ??""
-})
+    const [form, setform] = useState({
+        nombre: tienda?.Nombre_tienda ?? "",
+        direccion: tienda?.Direccion ?? "",
+        email: tienda?.email ?? "",
+        userId: localStorage.getItem('id_usuario') || ""
+    })
 
     const handleChange = (e) => {
-        setform({...form,
-            [e.target.name]:e.target.value
+        setform({
+            ...form,
+            [e.target.name]: e.target.value
         })
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
-        if (paciente?._id) {
+        console.log(form)
+        if (tienda?._id) {
             const token = localStorage.getItem('token')
-            const url = `${import.meta.env.VITE_BACKEND_URL}/paciente/actualizar/${paciente?._id}`
+            const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/solicitud/`
             const options = {
                 headers: {
                     method: 'PUT',
@@ -40,42 +38,38 @@ const [form, setform] = useState({
             navigate('/dashboard/listar')
         }
         else {
-		        try {
-		            const token = localStorage.getItem('token')
-		            //form.id = auth._id
-		            const url = `${import.meta.env.VITE_BACKEND_URL}/paciente/registro`
-		            const options={
-		                headers: {
-		                    'Content-Type': 'application/json',
-		                    Authorization: `Bearer ${token}`
-		                }
-		            }
-		            await axios.post(url,form,options)
-								setMensaje({ respuesta:"paciente registrado con exito y correo enviado", tipo: true })
-		            setTimeout(() => {
-		                navigate('/dashboard/listar');
-		            }, 3000);
-		        } catch (error) {
-                    setMensaje({ respuesta: error.response.data.msg, tipo: false })
-		            setTimeout(() => {
-                    setMensaje({})
-		            }, 3000);
-		        }
+            try {
+                const token = localStorage.getItem('token')
+                // form.id = auth._id
+                const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/solicitud/`
+                const options = {
+                    headers: {
+                        method: 'POST',
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+                await axios.post(url, form, options)
+                setMensaje({ respuesta: "paciente registrado con exito y correo enviado", tipo: true })
+            } catch (error) {
+                console.log(error)
+                // setMensaje({ respuesta: error.response?.data?.msg, tipo: false })
+            }
         }
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            {Object.keys(mensaje).length>0 && <Mensaje tipo={mensaje.tipo}>{mensaje.respuesta}</Mensaje>}
+            {Object.keys(mensaje).length > 0 && <Mensaje tipo={mensaje.tipo}>{mensaje.respuesta}</Mensaje>}
             <div>
                 <label
                     htmlFor='nombre:'
-                    className='text-slate-400 uppercase font-bold text-sm'>Nombre de la Tienda </label>
+                    className='text-slate-400 uppercase font-bold text-sm'>Nombre de la Tienda: </label>
                 <input
                     id='nombre'
                     type="text"
                     className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
-                    placeholder='nombre de la mascota'
+                    placeholder='nombre de tu tienda'
                     name='nombre'
                     value={form.nombre}
                     onChange={handleChange}
@@ -83,70 +77,38 @@ const [form, setform] = useState({
             </div>
             <div>
                 <label
-                    htmlFor='propietario:'
-                    className='text-slate-400 uppercase font-bold text-sm'>Nombre del propietario: </label>
+                    htmlFor='direccion:'
+                    className='text-slate-400 uppercase font-bold text-sm'>Direccion de la tienda: </label>
                 <input
-                    id='propietario'
+                    id='direccion'
                     type="text"
                     className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
-                    placeholder='nombre del propietario'
-                    name='propietario'
-                    value={form.propietario}
+                    placeholder='Direccion de la tienda'
+                    name='direccion'
+                    value={form.direccion}
                     onChange={handleChange}
                 />
             </div>
             <div>
                 <label
                     htmlFor='email:'
-                    className='text-slate-400 uppercase font-bold text-sm'>Email: </label>
+                    className='text-slate-400 uppercase font-bold text-sm'>Email de confirmacion: </label>
                 <input
                     id='email'
                     type="email"
                     className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
-                    placeholder='email del propietario'
+                    placeholder='Email@regitrado.com'
                     name='email'
                     value={form.email}
                     onChange={handleChange}
                 />
             </div>
-            <div>
-                <label
-                    htmlFor='celular:'
-                    className='text-slate-400 uppercase font-bold text-sm'>Celular: </label>
-                <input
-                    id='celular'
-                    type="number"
-                    className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
-                    placeholder='celular del propietario'
-                    name='celular'
-                    value={form.celular}
-                    onChange={handleChange}
-                />
-            </div>
-            <div>
-                <label
-                    htmlFor='ubicacion:'
-                    className='text-slate-400 uppercase font-bold text-sm'>Ubicacion: </label>
-                <input
-                    id='ubicacion'
-                    type="text"
-                    className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
-                    placeholder='ubicacion del propietario'
-                    name='ubicacion'
-                    value={form.ubicacion}
-                    onChange={handleChange}
-                />
-            </div>
-        
-
             <input
                 type="submit"
                 className='bg-purple-500 w-full p-3 
                     text-slate-300 uppercase font-bold rounded-lg 
                     hover:bg-gray-900 cursor-pointer transition-all'
-                    value={paciente?._id ? 'Actualizar paciente' : 'Mandar solicitud de tienda'} />
-
+                value={tienda?._id ? 'Actualizar Tienda' : 'Mandar solicitud de tienda'} />
         </form>
-  
     )
 }
