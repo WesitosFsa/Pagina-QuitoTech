@@ -12,6 +12,7 @@ import { NoEncontrada } from './pages/NoEncontrada.jsx';
 import Restablecer from './pages/Restablecer';
 import Listar from './pages/Listar.jsx'
 import Crear from './pages/Crear.jsx'
+import BuscarProducto from './pages/BuscarProducto.jsx'
 import Dashboard from './layout/Dashboard.jsx'
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='dashboard/listar' element={<Listar />} />
             <Route path='dashboard/crear' element={<Crear/>} />
+            <Route path='dashboard/buscar' element={<BuscarProducto/>} />
+
 
         </Route>
 

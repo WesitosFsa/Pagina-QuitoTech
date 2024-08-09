@@ -23,7 +23,8 @@ import {
     listarTiendas,
     listarproductosporID,
     listarproductosporCategoria,
-    listarproductosIDtienda
+    listarproductosIDtienda,
+    listarTiendasproductos
 } from "../controllers/usuario_controller.js";
 
 const router =Router()
@@ -49,7 +50,9 @@ router.get('/confirmartienda/:tokentienda',confirmarTienda) //OK
 router.get('/listartiendas',listarTiendas) //OK
 router.get('/producto/listarproductos/:id',listarproductosporID) //OK
 router.get('/productos/categoria/:Categoria',listarproductosporCategoria) //OK
-router.get('/tienda/productos/:id_tienda',listarproductosIDtienda) // OK
+router.get('/tienda/productos/:id_tienda',listarproductosIDtienda) // OK\
+router.get('/listartiendasopciones',listarTiendasproductos) // OK
+
 
 
 export default router
