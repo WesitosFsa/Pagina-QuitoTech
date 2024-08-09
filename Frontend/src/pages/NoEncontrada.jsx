@@ -16,7 +16,7 @@ export const NoEncontrada = () => {
                 
                 <p className="md:text-lg lg:text-xl text-white mt-8">Lo sentimos, la página que intentas buscar no se encuentra disponible o no existe.</p>
                 
-                <Link to="/login" className="inline-block mt-2 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300">Login</Link>
+                <Link to="/ingresar" className="inline-block mt-2 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300">ingresar</Link>
 
             </div>
         </div>

@@ -1,69 +1,55 @@
 import { useContext } from 'react'
 import { Link, Navigate, Outlet, useLocation } from 'react-router-dom'
-import AuthContext from '../../context/AuthProvider'
-
 
 const Dashboard = () => {
-    const location = useLocation()
-    const urlActual = location.pathname
-    const { auth} = useContext(AuthContext)
-    const autenticado = localStorage.getItem('token')
     return (
-        <div className='md:flex md:min-h-screen'>
-
-            <div className='md:w-1/5 bg-gray-800 px-5 py-4'>
-
-                <h2 className='text-4xl font-black text-center text-slate-200'>APP-DEMO</h2>
-
-                <img src="https://cdn-icons-png.flaticon.com/512/2138/2138508.png" alt="img-client" className="m-auto mt-8 p-1 border-2 border-slate-500 rounded-full" width={120} height={120} />
-                <p className='text-slate-400 text-center my-4 text-sm'> <span className='bg-green-600 w-3 h-3 inline-block rounded-full'>
-                    </span>Bienvenido - {auth?.nombre}</p>
-                <hr className="mt-5 border-slate-500" />
-                
-
-                <ul className="mt-5">
-
-                    <li className="text-center">
-                        <Link to='/dashboard' className={`${urlActual === '/dashboard' ? 'text-slate-200 bg-gray-900 px-3 py-2 rounded-md text-center' : 'text-slate-600'} text-xl block mt-2 hover:text-slate-600`}>Perfil</Link>
-                    </li>
-
-                    <li className="text-center">
-                        <Link to='/dashboard/listar' className={`${urlActual === '/dashboard/listar' ? 'text-slate-200 bg-gray-900 px-3 py-2 rounded-md text-center' : 'text-slate-600'} text-xl block mt-2 hover:text-slate-600`}>Listar</Link>
-                    </li>
-
-                    <li className="text-center">
-                        <Link to='/dashboard/crear' className={`${urlActual === '/dashboard/crear' ? 'text-slate-100 bg-gray-900 px-3 py-2 rounded-md text-center' : 'text-slate-600'} text-xl block mt-2 hover:text-slate-600`}>Crear</Link>
-                    </li>
-                </ul>
-
+<div className="min-h-screen w-full flex justify-between items-start bg-[url('/public/images/paginalogin.png')] bg-no-repeat bg-cover bg-center">
+    <div className="bg-gray-900 bg-opacity-90 p-10 rounded-lg shadow-lg w-11/12 max-w-md min-h-screen flex flex-col justify-start space-y-4">
+        <h2 className='text-4xl font-black text-center text-white'>QuitoTech</h2>
+        <hr className="border-blue-500" />
+        <ul className="mt-5 flex flex-col space-y-4">
+            <li className="text-center">
+                <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">Productos</div>
+            </li>
+            <li className="text-center">
+                <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">Buscar</div>
+            </li>
+            <li className="text-center">
+                <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">Registrar tienda</div>
+            </li>
+        </ul>
+    </div>
+    <div className="flex-grow flex justify-center items-center">
+        <div className="bg-gray-900 bg-opacity-90 p-10 rounded-lg shadow-lg w-11/12 flex flex-wrap gap-6 border border-gray-700 mt-10 mb-10 ml-10 mr-5">
+            <hr className='my-4 w-full' />
+            <h2 className='text-4xl font-black text-center text-white'>Lista de productos principales</h2>
+            <hr className='my-4 w-full' />
+            <div className='text-center shadow-2xl p-10 rounded-xl md:w-72 lg:w-96 bg-purple-600 transition-transform transform hover:scale-105'>
+                <h2 className='text-lg font-medium pt-8 pb-2 text-white'>COMPONENTES PC</h2>
+                <p className='py-4 text-white'>
+                    Encuentra los mejores componentes para personalizar y potenciar tu PC, adaptados a todas tus necesidades.
+                </p>
+                <p className='text-white py-1'>Tarjetas RAM</p>
+                <p className='text-white py-1'>Microprocesadores</p>
+                <p className='text-white py-1'>Ventiladores</p>
+                <p className='text-white py-1'>Fuente de Energía</p>
             </div>
 
-            <div className='flex-1 flex flex-col justify-between h-screen bg-gray-100'>
-                <div className='bg-gray-800 py-2 flex md:justify-end items-center gap-5 justify-center'>
-                    <div className='text-md font-semibold text-slate-100'>
-                    Bienvenido - {auth?.nombre}
-                    </div>
-                    <div>
-                        <img src="https://cdn-icons-png.flaticon.com/512/4715/4715329.png" alt="img-client" className="border-2 border-green-600 rounded-full" width={50} height={50} />
-                    </div>
-                    <div>
-                        <Link to='/' className=" text-white mr-3 text-md block hover:bg-red-900 text-center
-                        bg-red-800 px-4 py-1 rounded-lg" onClick={()=>{localStorage.removeItem('token')}} >Salir</Link>
-                    </div>
-                </div>
-                <div className='overflow-y-scroll p-8'>
-                    {autenticado ? <Outlet /> : <Navigate to="/login" />}
-                </div>
-                <div className='bg-gray-800 h-12'>
-                    <p className='text-center  text-slate-100 leading-[2.9rem] underline'>Todos los derechos reservados</p>
-                </div>
-
+            <div className='text-center shadow-2xl p-10 rounded-xl md:w-72 lg:w-96 bg-purple-600 transition-transform transform hover:scale-105'>
+                <h2 className='text-lg font-medium pt-8 pb-2 text-white'>PERIFÉRICOS</h2>
+                <p className='py-4 text-white'>
+                    Mejora tu configuración con nuestra gama de periféricos, desde teclados y ratones hasta auriculares.
+                </p>
+                <p className='text-white py-1'>Teclados</p>
+                <p className='text-white py-1'>Mouses</p>
+                <p className='text-white py-1'>Auriculares</p>
+                <p className='text-white py-1'>Micrófonos</p>
             </div>
-
-
-
         </div>
-    )
-}
+    </div>
+</div>
+
+    );
+};
 
 export default Dashboard

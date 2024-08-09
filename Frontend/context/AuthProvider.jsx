@@ -14,8 +14,8 @@ const AuthProvider = ({ children }) => {
 
     const perfil = async(token) => {
         try {
-            // * Mandar el token de bearer recoje el token del usuario
-            const url = `${import.meta.env.VITE_BACKEND_URL}/perfil`
+            // Mandar el token de bearer recoje el token del usuario
+            const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/perfil`
             const options={
                 headers: {
                     'Content-Type': 'application/json',

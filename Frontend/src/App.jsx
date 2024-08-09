@@ -10,7 +10,9 @@ import { PrivateRoute } from './routes/PrivateRoute.jsx'
 import {Forgot} from './pages/Forgot.jsx'
 import { NoEncontrada } from './pages/NoEncontrada.jsx';
 import Restablecer from './pages/Restablecer';
-
+import Listar from './pages/Listar.jsx'
+import Crear from './pages/Crear.jsx'
+import Dashboard from './layout/Dashboard.jsx'
 function App() {
   return (
 
@@ -20,14 +22,18 @@ function App() {
         
         <Route index element={<PaginaInicial/>}/>
             <Route path='/' element={<Auth/>}>
-            <Route path='productos' element={<Productos/>}/>
             <Route path='ingresar' element={<Ingresar/>}/>
             <Route path='registrar' element={<Registrar/>}/>
+            <Route path='productos' element={<Productos/>}/>
             <Route path='forgot/:id' element={<Forgot/>}/>
             <Route path='*' element={<NoEncontrada />} />
             <Route path='recuperar-password/:token' element={<Restablecer />} />
+            <Route path='dashboard' element={<Dashboard />} />
+            <Route path='dashboard/listar' element={<Listar />} />
+            <Route path='dashboard/crear' element={<Crear/>} />
 
         </Route>
+
 
 
 

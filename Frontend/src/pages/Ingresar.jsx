@@ -23,7 +23,7 @@ const Ingresar = () => {
     const handleSubmit = async (e) => { 
         e.preventDefault()
         try {
-            const url = `${import.meta.env.VITE_BACKEND_URL}/login`
+            const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/login`
             const respuesta = await axios.post(url, form)
 
             localStorage.setItem('token', respuesta.data.token)
