@@ -54,6 +54,7 @@ const ListarProductosPorCategoria = () => {
 
   return (
     <div>
+      <hr className="my-4" />
       <select
         value={categoria}
         onChange={(e) => setCategoria(e.target.value)}
@@ -69,7 +70,9 @@ const ListarProductosPorCategoria = () => {
       <button onClick={handleBuscar} className="ml-2 bg-blue-800 px-3 py-2 text-white rounded-lg">
         Buscar
       </button>
+      <hr className="my-4" />
       <Tabla productos={productosConTiendas} />
+      
     </div>
   );
 };

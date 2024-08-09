@@ -56,8 +56,8 @@ const BuscarProducto = () => {
                 Buscar Productos por categoría
               </button>
             </div>
-            {mostrarTabla === 'categoria' && <ListarProductosPorCategoria />}
-            {mostrarTabla === 'nombreTienda' && <ListarProductosPorTienda />}
+              {mostrarTabla === 'categoria' && <ListarProductosPorCategoria />}
+              {mostrarTabla === 'nombreTienda' && <ListarProductosPorTienda />}
           </div>
         </div>
       </div>

@@ -74,6 +74,8 @@ const ListarProductosPorTienda = () => {
 
   return (
     <div>
+      <hr className="my-4" />
+
       {tiendas.length > 0 ? (
         <select
           value={id}
@@ -87,12 +89,14 @@ const ListarProductosPorTienda = () => {
             </option>
           ))}
         </select>
+        
       ) : (
         <p>Cargando tiendas...</p>
       )}
       <button onClick={handleBuscar} className="ml-2 bg-blue-800 px-3 py-2 text-white rounded-lg">
         Buscar
       </button>
+      <hr className="my-4" />
       <Tabla productos={productosConTiendas} />
     </div>
   );

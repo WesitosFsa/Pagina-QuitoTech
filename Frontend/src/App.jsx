@@ -20,7 +20,6 @@ function App() {
     <BrowserRouter>
     <AuthProvider>
       <Routes>
-        
         <Route index element={<PaginaInicial/>}/>
             <Route path='/' element={<Auth/>}>
             <Route path='ingresar' element={<Ingresar/>}/>
@@ -33,13 +32,7 @@ function App() {
             <Route path='dashboard/listar' element={<Listar />} />
             <Route path='dashboard/crear' element={<Crear/>} />
             <Route path='dashboard/buscar' element={<BuscarProducto/>} />
-
-
         </Route>
-
-
-
-
         </Routes>
     </AuthProvider>
     </BrowserRouter>

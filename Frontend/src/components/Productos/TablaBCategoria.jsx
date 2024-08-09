@@ -4,22 +4,25 @@ const Tabla = ({ productos }) => {
   console.log("Productos recibidos en Tabla:", productos);
 
   if (!Array.isArray(productos) || productos.length === 0) {
-    return <p>No se encontraron productos</p>;
+    return <p className="mt-4 font-black text-2xl text-gray-200">No hay productos en esta categoria seleccione otra categoria</p>;
   }
 
   return (
-    <table className="min-w-full bg-gray-700 bg-opacity-70">
+    <table className="mt-4 min-w-full bg-gray-700 bg-opacity-70">
       <thead>
         <tr>
+          <th className="py-2 px-4 border-b border-gray-900 text-white">N-</th> 
           <th className="py-2 px-4 border-b border-gray-900 text-white">Nombre</th>
           <th className="py-2 px-4 border-b border-gray-900 text-white">Categoría</th>
           <th className="py-2 px-4 border-b border-gray-900 text-white">Estado</th>
-          <th className="py-2 px-4 border-b border-gray-900 text-white">Tienda</th> {/* Nueva Cabecera */}
+          <th className="py-2 px-4 border-b border-gray-900 text-white">Tienda</th> 
+          
         </tr>
       </thead>
       <tbody>
-        {productos.map((producto) => (
+        {productos.map((producto,index) => (
           <tr key={producto._id}>
+            <td className="py-2 px-4 border-b border-gray-900 text-white text-center text-sm">{index + 1}</td>
             <td className="py-2 px-4 border-b border-gray-900 text-white text-center text-sm">
               {producto.Nombre_producto}
             </td>
