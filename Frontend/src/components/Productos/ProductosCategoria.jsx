@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import Tabla from "../Tabla.jsx";
+import React, { useEffect, useState } from "react";
+import Tabla from "./TablaBCategoria.jsx";
 
 const ListarProductosPorCategoria = () => {
   const [categoria, setCategoria] = useState("");
   const [productos, setProductos] = useState([]);
-
+  const [tiendas, setTiendas] = useState([]);
   const categorias = ['Mandos','Consolas','Videojuegos','Perifericos','ComponentesPC','Otros']; // Agrega las categorías que necesites
 
   const handleBuscar = async () => {
@@ -16,6 +16,41 @@ const ListarProductosPorCategoria = () => {
       console.error("Error al listar productos por categoría:", error);
     }
   };
+  useEffect(() => {
+    // Obtener la lista de tiendas al montar el componente
+    const obtenerTiendas = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/listartiendasopciones`);
+        const data = await response.json();
+        console.log("Datos de tiendas:", data); // Verifica los datos aquí
+        setTiendas(data);
+      } catch (error) {
+        console.error("Error al obtener la lista de tiendas:", error);
+      }
+    };
+  
+    obtenerTiendas();
+  }, []);
+  const productosConTiendas = productos.map(producto => {
+    // Asegúrate de que id_tienda es un ID y no un objeto
+    const tiendaId = producto.id_tienda?._id || producto.id_tienda; // Ajusta si es necesario
+    
+    if (!tiendaId) {
+      console.error(`ID de tienda no definido para producto ${producto._id}`);
+      return {
+        ...producto,
+        Nombre_tienda: "Desconocida"
+      };
+    }
+  
+    const tienda = tiendas.find(tienda => String(tienda._id) === String(tiendaId));
+    console.log(`Buscando tienda con ID ${tiendaId}:`, tienda);
+    return {
+      ...producto,
+      Nombre_tienda: tienda?.Nombre_tienda || "Desconocida"
+    };
+  });
+  
 
   return (
     <div>
@@ -34,7 +69,7 @@ const ListarProductosPorCategoria = () => {
       <button onClick={handleBuscar} className="ml-2 bg-blue-800 px-3 py-2 text-white rounded-lg">
         Buscar
       </button>
-      <Tabla productos={productos} />
+      <Tabla productos={productosConTiendas} />
     </div>
   );
 };

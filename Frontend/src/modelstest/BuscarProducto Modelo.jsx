@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import ListarProductosPorCategoria from "../components/Productos/ProductosCategoria";
+import ListarProductosPorCategoria from "../components/Productos/ProductosCategoria.jsx";
+import ListarProductosPorNombre from "../components/Productos/ProductosID.jsx";
 import ListarProductosPorTienda from "../components/Productos/ProductosTienda.jsx";
 
 const BuscarProducto = () => {
@@ -55,8 +56,15 @@ const BuscarProducto = () => {
               >
                 Buscar Productos por categoría
               </button>
+              <button
+                onClick={() => handleShowTable('nombreProducto')}
+                className="bg-purple-500 px-3 py-2 text-slate-300 uppercase font-bold rounded-lg hover:bg-gray-900 cursor-pointer transition-all"
+              >
+                Buscar productos por nombre
+              </button>
             </div>
             {mostrarTabla === 'categoria' && <ListarProductosPorCategoria />}
+            {mostrarTabla === 'nombreProducto' && <ListarProductosPorNombre />}
             {mostrarTabla === 'nombreTienda' && <ListarProductosPorTienda />}
           </div>
         </div>

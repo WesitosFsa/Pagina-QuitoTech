@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Tabla from "../Tabla.jsx";
+import Tabla from "./TablaBTienda.jsx";
 
 const ListarProductosPorID = () => {
   const [id, setId] = useState("");

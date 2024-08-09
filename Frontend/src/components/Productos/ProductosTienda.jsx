@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Tabla from "../Tabla.jsx";
+import Tabla from "./TablaBTienda.jsx";
 
 const ListarProductosPorTienda = () => {
   const [id, setId] = useState("");
@@ -25,15 +25,17 @@ const ListarProductosPorTienda = () => {
   const handleBuscar = async () => {
     console.log("ID reconocido:", id); // Log the recognized ID
 
+    if (!id) {
+      console.error("ID no seleccionado");
+      return;
+    }
+
     try {
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/tienda/productos/${id}`);
       const data = await response.json();
-      const data2 = await (`${import.meta.env.VITE_BACKEND_URL}/tienda/productos/${id}`);
       
-      // Verifica y ajusta el formato de los datos
-      console.log(data2);
-      
-      // Asegúrate de que los datos son un array
+      console.log("Datos recibidos:", data); // Verifica los datos aquí
+
       if (Array.isArray(data)) {
         setProductos(data);
       } else {
@@ -44,6 +46,31 @@ const ListarProductosPorTienda = () => {
       console.error("Error al listar productos por ID:", error);
     }
   };
+
+  console.log("Productos:", productos);
+  console.log("Tiendas:", tiendas);
+
+  const productosConTiendas = productos.map(producto => {
+    // Asegúrate de que id_tienda es un ID y no un objeto
+    const tiendaId = producto.id_tienda?._id || producto.id_tienda; // Ajusta si es necesario
+    
+    if (!tiendaId) {
+      console.error(`ID de tienda no definido para producto ${producto._id}`);
+      return {
+        ...producto,
+        Direccion: "Desconocida"
+      };
+    }
+
+    const tienda = tiendas.find(tienda => String(tienda._id) === String(tiendaId));
+    console.log(`Buscando tienda con ID ${tiendaId}:`, tienda);
+    return {
+      ...producto,
+      Direccion: tienda?.Direccion || "Desconocida"
+    };
+  });
+
+  console.log("Productos con tiendas:", productosConTiendas);
 
   return (
     <div>
@@ -66,7 +93,7 @@ const ListarProductosPorTienda = () => {
       <button onClick={handleBuscar} className="ml-2 bg-blue-800 px-3 py-2 text-white rounded-lg">
         Buscar
       </button>
-      <Tabla productos={productos} />
+      <Tabla productos={productosConTiendas} />
     </div>
   );
 };
