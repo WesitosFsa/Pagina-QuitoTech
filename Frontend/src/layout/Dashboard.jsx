@@ -15,7 +15,7 @@ const Dashboard = () => {
                     </li>
                     <li className="text-center">
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
-                            <Link to="/dashboard/listar">Buscar</Link>
+                            <Link to="/dashboard/listartienda">Buscar</Link>
                         </div>
                     </li>
 
@@ -23,6 +23,12 @@ const Dashboard = () => {
 
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
                             <Link to="/dashboard/crear">Registrar tienda</Link>
+                        </div>
+                    </li>
+                    <li className="text-center">
+
+                        <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
+                            <Link to="/dashboard/crearproducto">Registrar Producto</Link>
                         </div>
                     </li>
                 </ul>

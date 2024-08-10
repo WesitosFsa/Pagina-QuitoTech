@@ -213,7 +213,7 @@ const solicitarTienda = async (req, res) => {
 
 // * BIEN
 const listarTiendas = async (req,res)=>{ 
-    const tiendas = await Tienda.find({Verificado:true}).where('Tienda').equals(req.TiendaBDD).select("-salida -createdAt -updatedAt -__v").populate('Nombre_tienda Direccion')
+    const tiendas = await Tienda.find({Verificado:true}).where('Tienda').equals(req.TiendaBDD).select("-salida -createdAt -updatedAt -__v").populate('Nombre_tienda Direccion id_usuario _id')
     res.status(200).json(tiendas)
 }// * BIEN
 const listarproductosIDtienda = async (req, res) => {
@@ -276,9 +276,21 @@ const listarTiendasproductos = async (req, res) => {
       res.status(500).json({ message: "Error al listar tiendas", error });
     }
   };
-  
-
-
+const obtenerTiendaDelUsuario = async (req, res) => {
+    const { id_usuario } = req.params;
+    
+    try {
+      const tienda = await Tienda.findOne({ id_usuario });
+      
+      if (!tienda) {
+        return res.status(404).json({ msg: 'No se encontró una tienda asociada a este usuario' });
+      }
+      
+      res.status(200).json({ tienda });
+    } catch (error) {
+      res.status(500).json({ msg: 'Error al obtener la tienda', error });
+    }
+  };
 
 
 export {
@@ -300,5 +312,6 @@ export {
     listarproductosporID,
     listarproductosporCategoria,
     listarproductosIDtienda,
-    listarTiendasproductos
+    listarTiendasproductos,
+    obtenerTiendaDelUsuario
 }
