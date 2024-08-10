@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Mensaje from '../components/Alertas.jsx';
-import notfound from '/public/xdddd.webp'
+import notfound from '../assets/consulting.png'
 
 
 export const Confirmar = () => {

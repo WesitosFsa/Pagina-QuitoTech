@@ -15,6 +15,7 @@ import Listar from './pages/Listar.jsx'
 import Crear from './pages/Crear.jsx'
 import BuscarProducto from './pages/BuscarProducto.jsx'
 import Dashboard from './layout/Dashboard.jsx'
+import Listartienda from './pages/Listartienda.jsx'
 import Confirmacion_registro_tienda from './pages/Confirmacion_registro_tienda.jsx'
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
             <Route path='dashboard/listar' element={<Listar />} />
             <Route path='dashboard/confirmacion' element={<Confirmacion_registro_tienda />} />
             <Route path='dashboard/crear' element={<Crear/>} />
-           
+            <Route path='dashboard/listartienda' element={<Listartienda/>} />
             <Route path='dashboard/buscar' element={<BuscarProducto/>} />
             <Route path='*' element={<NoEncontrada />} />
         </Route>
