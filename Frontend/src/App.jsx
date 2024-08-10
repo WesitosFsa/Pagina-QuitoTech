@@ -13,6 +13,7 @@ import { Confirmar } from './pages/ConfirmarEmail';
 import Restablecer from './pages/Restablecer';
 import Listar from './pages/Listar.jsx'
 import Crear from './pages/Crear.jsx'
+import BuscarProducto from './pages/BuscarProducto.jsx'
 import Dashboard from './layout/Dashboard.jsx'
 import Confirmacion_registro_tienda from './pages/Confirmacion_registro_tienda.jsx'
 function App() {
@@ -21,7 +22,6 @@ function App() {
     <BrowserRouter>
     <AuthProvider>
       <Routes>
-        
         <Route index element={<PaginaInicial/>}/>
             <Route path='/' element={<Auth/>}>
             <Route path='ingresar' element={<Ingresar/>}/>
@@ -34,16 +34,10 @@ function App() {
             <Route path='dashboard/listar' element={<Listar />} />
             <Route path='dashboard/confirmacion' element={<Confirmacion_registro_tienda />} />
             <Route path='dashboard/crear' element={<Crear/>} />
-
-
-
-            {/* siempre al ultimo */}
+           
+            <Route path='dashboard/buscar' element={<BuscarProducto/>} />
             <Route path='*' element={<NoEncontrada />} />
         </Route>
-
-
-
-
         </Routes>
     </AuthProvider>
     </BrowserRouter>
