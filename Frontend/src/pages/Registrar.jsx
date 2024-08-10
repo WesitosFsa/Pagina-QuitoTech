@@ -24,7 +24,7 @@ export const Registrar = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const url = `${import.meta.env.VITE_BACKEND_URL}/registro`
+            const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/registro`
             const respuesta = await axios.post(url, form)
             setMensaje({ respuesta: respuesta.data.msg, tipo: true })
             setform({})
