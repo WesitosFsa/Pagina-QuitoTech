@@ -11,7 +11,7 @@ export const Formulario = ({ tienda }) => {
         Nombre_tienda: tienda?.Nombre_tienda ?? "",
         Direccion: tienda?.Direccion ?? "",
         email: tienda?.email ?? "",
-        userId: localStorage.getItem('id_usuario') || ""
+        id_usuario: localStorage.getItem('id_usuario') || ""
     })
 
     const handleChange = (e) => {
