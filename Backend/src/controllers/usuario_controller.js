@@ -242,7 +242,19 @@ const listarproductosporCategoria = async (req, res) => {
         console.log(error);
     }
 };//BIEN
-
+const listarTiendasproductos = async (req, res) => {
+    try {
+      const tiendas = await Tienda.find({ Verificado: true })
+        .where('Tienda').equals(req.TiendaBDD)
+        .select('Nombre_tienda _id') // Solo selecciona 'Nombre_tienda' y '_id'
+        .populate('Nombre_tienda Direccion');
+  
+      res.status(200).json(tiendas);
+    } catch (error) {
+      res.status(500).json({ message: "Error al listar tiendas", error });
+    }
+  };
+  
 
 
 
@@ -265,5 +277,6 @@ export {
     listarTiendas,
     listarproductosporID,
     listarproductosporCategoria,
-    listarproductosIDtienda
+    listarproductosIDtienda,
+    listarTiendasproductos
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import Tabla from "../components/Tabla.jsx";
+import Tabla from "../components/Productos/TablaBTienda.jsx";
 import mandos from "../assets/mandos.jpg";
 import consolas from "../assets/consolas.webp";
 import videojuegos from "../assets/videojuegos.webp";

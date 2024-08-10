@@ -41,6 +41,7 @@ const cambiarEstado = async(req,res)=>{
 
 
 
+
 export {
     detalleProducto,
     registrarProducto,
