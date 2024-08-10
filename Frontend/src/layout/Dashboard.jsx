@@ -2,6 +2,8 @@ import { useContext } from 'react'
 import { Link, Navigate, Outlet, useLocation } from 'react-router-dom'
 
 const Dashboard = () => {
+    const urlActual = location.pathname
+    
     return (
 <div className="min-h-screen w-full flex justify-between items-start bg-[url('/public/images/paginalogin.png')] bg-no-repeat bg-cover bg-center">
     <div className="bg-gray-900 bg-opacity-90 p-10 rounded-lg shadow-lg w-11/12 max-w-md min-h-screen flex flex-col justify-start space-y-4">
@@ -18,7 +20,12 @@ const Dashboard = () => {
                 <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">Registrar tienda</div>
             </li>
             <li className="text-center">
-                <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">Visualizar tiendas</div>
+            <Link
+                to='listartienda'
+                className={`${urlActual === 'dashboard/listartienda' ? 'text-white bg-blue-800' : 'text-white bg-blue-800'} px-3 py-2 rounded-md text-xl`}
+            >
+                Visualizar tiendas
+            </Link>
             </li>
         </ul>
     </div>
