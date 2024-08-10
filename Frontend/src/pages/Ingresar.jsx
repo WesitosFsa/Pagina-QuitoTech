@@ -27,6 +27,7 @@ const Ingresar = () => {
             const respuesta = await axios.post(url, form)
 
             localStorage.setItem('token', respuesta.data.token)
+            localStorage.setItem('id_usuario', respuesta.data._id)
             setAuth(respuesta.data)
             navigate('/dashboard')
         } catch (error) {
