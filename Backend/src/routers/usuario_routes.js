@@ -24,7 +24,8 @@ import {
     listarproductosporID,
     listarproductosporCategoria,
     listarproductosIDtienda,
-    listarTiendasproductos
+    listarTiendasproductos,
+    obtenerTiendaDelUsuario
 } from "../controllers/usuario_controller.js";
 
 const router =Router()
@@ -41,6 +42,7 @@ router.get('/usuario/perfil',verificarAutenticacion,perfil) //OK
 router.put('/usuario/actualizaremail',verificarAutenticacion,actualizarEmail) //OK
 router.put('/usuario/actualizarpassword',verificarAutenticacion,actualizarPassword) //OK
 router.put('/usuario/:id',verificarAutenticacion,actualizarPerfil) //OK
+router.get('/usuario/tienda/:id_usuario', obtenerTiendaDelUsuario);
 
 
 // ! Rutas tienda 
