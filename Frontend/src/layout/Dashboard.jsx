@@ -25,6 +25,11 @@ const Dashboard = () => {
                             <Link to="/dashboard/crear">Registrar tienda</Link>
                         </div>
                     </li>
+                    <li className="text-center">
+                        <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
+                            <Link to="/" onClick={()=>{localStorage.removeItem('token')}}>Salir del Sistema</Link>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div className="flex-grow flex justify-center items-center">

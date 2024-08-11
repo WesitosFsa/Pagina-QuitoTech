@@ -35,11 +35,6 @@ export const PaginaInicial = () => {
                                     Registrarse
                                 </Link>
                             </li>
-                            <li>
-                                <Link to="/productos" className="py-2 px-5  bg-purple-500 text-slate-300 border-width:0px rounded-full ml-8 hover:scale-210 duration-300 hover:bg-gray-800" >
-                                    Buscar Productos
-                                </Link>
-                            </li>
                         </ul>
                     </nav>
 

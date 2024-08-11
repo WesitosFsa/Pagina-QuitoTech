@@ -7,7 +7,7 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import { AuthProvider } from '../context/AuthProvider'
 import Auth from './layout/Auth'
 import { PrivateRoute } from './routes/PrivateRoute.jsx'
-import {Forgot} from './pages/Forgot.jsx'
+import Forgot from './pages/Forgot.jsx'
 import { NoEncontrada } from './pages/NoEncontrada.jsx';
 import { Confirmar } from './pages/ConfirmarEmail';
 import Restablecer from './pages/Restablecer';
