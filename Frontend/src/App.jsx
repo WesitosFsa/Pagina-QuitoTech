@@ -18,6 +18,7 @@ import Dashboard from './layout/Dashboard.jsx'
 import Listartienda from './pages/Listartienda.jsx'
 import Confirmacion_registro_tienda from './pages/Confirmacion_registro_tienda.jsx'
 import CrearProducto from './pages/CrearProductos.jsx'
+import AdministrarTienda  from './pages/AdministrarTienda.jsx'
 function App() {
   return (
 
@@ -39,6 +40,8 @@ function App() {
             <Route path='dashboard/listartienda' element={<Listartienda/>} />
             <Route path='dashboard/buscar' element={<BuscarProducto/>} />
             <Route path='dashboard/crearproducto' element={<CrearProducto/>} />
+            <Route path='dashboard/administrartienda' element={<AdministrarTienda/>} />
+
             <Route path='*' element={<NoEncontrada />} />
         </Route>
         </Routes>

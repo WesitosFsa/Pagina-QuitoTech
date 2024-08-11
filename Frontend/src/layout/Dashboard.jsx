@@ -27,10 +27,11 @@ const Dashboard = () => {
                             </Link>
                         </div>
                     </li>
+                    
                     <li className="text-center">
 
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
-                            <Link to="/dashboard/crearproducto">Registrar Producto</Link>
+                            <Link to="/dashboard/administrartienda">Administrar Tienda</Link>
                         </div>
                     </li>
                     <li className="text-center">

@@ -10,12 +10,7 @@ const CrearProducto = () => {
                 <ul className="mt-5 flex flex-col space-y-4">
                     <li className="text-center">
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
-                        <Link to="/dashboard">Inicio</Link>
-                        </div>
-                    </li>
-                    <li className="text-center">
-                        <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
-                        <Link to="/dashboard/crear">Registrar tienda</Link>
+                        <Link to="/dashboard/administrartienda">Volver</Link>
                         </div>
                     </li>
                 </ul>
