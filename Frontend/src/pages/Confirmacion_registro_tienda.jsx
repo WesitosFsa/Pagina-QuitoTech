@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import tienda from "../assets/perifericos.jpg";
 import { Link } from 'react-router-dom';
-
+import carrusel3 from "../../public/images/imagen_carrusel_3.jpg";
+import carrusel2 from "../../public/images/imagen_carrusel_2.webp";
+import logoGamer from '../assets/gamer.png';
 const Crear = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const slides = [tienda, tienda, tienda]; // Reemplaza con las imágenes reales
+    const slides = [tienda, carrusel2, carrusel3]; // Reemplaza con las imágenes reales
     const totalSlides = slides.length;
 
     const showSlide = (index) => {
@@ -57,10 +59,7 @@ const Crear = () => {
                                 </div>
                             ))}
                         </div>
-                        <div className="carousel-buttons absolute top-1/2 w-full flex justify-between transform -translate-y-1/2">
-                            <button className="carousel-button bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full ml-2" onClick={prevSlide}>❮</button>
-                            <button className="carousel-button bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full mr-2" onClick={nextSlide}>❯</button>
-                        </div>
+                       
                     </div>
                     <div className="text-center mt-5">
                         <Link to="/dashboard/crear" className="mr-4 bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded transition-all">

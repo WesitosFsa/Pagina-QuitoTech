@@ -127,7 +127,8 @@ const login = async(req,res)=>{
         direccion,
         telefono,
         _id,
-        email:usuarioBDD.email})
+        email:usuarioBDD.email,
+        propietario:usuarioBDD.propietario})
 } // * BIEN
 const perfil = (req,res)=>{
     delete req.usuarioBDD.token
