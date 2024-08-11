@@ -32,7 +32,7 @@ function App() {
             <Route path='forgot/:id' element={<Forgot/>}/>
             <Route path='recuperar-password/:token' element={<Restablecer />} />
             <Route path='dashboard' element={<Dashboard />} />
-            <Route path='dashboard/productos' element={<Productos/>}/>
+            <Route path='/productos' element={<Productos/>}/>
             <Route path='dashboard/listar' element={<Listar />} />
             <Route path='dashboard/confirmacion' element={<Confirmacion_registro_tienda />} />
             <Route path='dashboard/crear' element={<Crear/>} />

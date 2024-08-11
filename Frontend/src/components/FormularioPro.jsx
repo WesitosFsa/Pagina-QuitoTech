@@ -55,7 +55,7 @@ export const FormularioPro = () => {
       };
       await axios.post(url, { ...form, id_tienda: tiendaUsuario._id }, options);
       setMensaje({ respuesta: "Producto registrado exitosamente", tipo: true });
-      navigate('/dashboard/listar');
+      navigate('/dashboard/buscar');
     } catch (error) {
       console.error(error);
       setMensaje({ respuesta: error.response?.data?.msg, tipo: false });

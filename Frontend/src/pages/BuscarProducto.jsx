@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ListarProductosPorCategoria from "../components/Productos/ProductosCategoria";
 import ListarProductosPorTienda from "../components/Productos/ProductosTienda.jsx";
-
+import { Link } from "react-router-dom";
 const BuscarProducto = () => {
   const [mostrarTabla, setMostrarTabla] = useState(null);
 
@@ -19,18 +19,13 @@ const BuscarProducto = () => {
           <hr className="border-blue-500" />
           <ul className="mt-5 flex flex-col space-y-4">
             <li className="text-center">
-              <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
-                Productos
+              <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
+                <Link to="/dashboard">Inicio</Link>
               </div>
             </li>
             <li className="text-center">
-              <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
-                Buscar
-              </div>
-            </li>
-            <li className="text-center">
-              <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
-                Registrar tienda
+              <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
+                <Link to="/dashboard/listartienda">Buscar Tienda</Link>
               </div>
             </li>
           </ul>
@@ -56,8 +51,8 @@ const BuscarProducto = () => {
                 Buscar Productos por categoría
               </button>
             </div>
-              {mostrarTabla === 'categoria' && <ListarProductosPorCategoria />}
-              {mostrarTabla === 'nombreTienda' && <ListarProductosPorTienda />}
+            {mostrarTabla === 'categoria' && <ListarProductosPorCategoria />}
+            {mostrarTabla === 'nombreTienda' && <ListarProductosPorTienda />}
           </div>
         </div>
       </div>

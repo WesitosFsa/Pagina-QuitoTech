@@ -1,5 +1,6 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { Link, Navigate, Outlet, useLocation } from 'react-router-dom'
+
 
 const Dashboard = () => {
     return (
@@ -9,25 +10,26 @@ const Dashboard = () => {
                 <hr className="border-blue-500" />
                 <ul className="mt-5 flex flex-col space-y-4">
                     <li className="text-center">
-                        <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
-                            <Link to="dashboard/productos">Productos</Link>
+                        <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
+                            <Link to="/dashboard/buscar">Productos</Link>
                         </div>
                     </li>
                     <li className="text-center">
-                        <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
-                            <Link to="/dashboard/listartienda">Buscar</Link>
+                        <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
+                            <Link to="/dashboard/listartienda">Buscar Tienda</Link>
                         </div>
                     </li>
 
                     <li className="text-center">
-
-                        <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
-                            <Link to="/dashboard/crear">Registrar tienda</Link>
+                        <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
+                            <Link to="/dashboard/confirmacion">
+                                Registrar tienda
+                            </Link>
                         </div>
                     </li>
                     <li className="text-center">
 
-                        <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
+                        <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
                             <Link to="/dashboard/crearproducto">Registrar Producto</Link>
                         </div>
                     </li>
