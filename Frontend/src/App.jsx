@@ -19,6 +19,7 @@ import Listartienda from './pages/Listartienda.jsx'
 import Confirmacion_registro_tienda from './pages/Confirmacion_registro_tienda.jsx'
 import CrearProducto from './pages/CrearProductos.jsx'
 import AdministrarTienda  from './pages/AdministrarTienda.jsx'
+import AdministrarProducto from './pages/AdministrarProducto.jsx'
 function App() {
   return (
 
@@ -41,6 +42,7 @@ function App() {
             <Route path='dashboard/buscar' element={<BuscarProducto/>} />
             <Route path='dashboard/crearproducto' element={<CrearProducto/>} />
             <Route path='dashboard/administrartienda' element={<AdministrarTienda/>} />
+            <Route path='dashboard/actualizarproducto' element={<AdministrarProducto/>} />
 
             <Route path='*' element={<NoEncontrada />} />
         </Route>

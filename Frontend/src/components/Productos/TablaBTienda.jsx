@@ -1,4 +1,4 @@
-import React from "react";
+    import React from "react";
 
 const Tabla = ({ productos }) => {
   console.log("Productos recibidos en Tabla:", productos);
