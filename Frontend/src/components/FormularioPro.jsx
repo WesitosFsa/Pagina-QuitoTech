@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Mensaje from './Alertas';
+import Swal from 'sweetalert2';
 
 export const FormularioPro = () => {
-  const navigate = useNavigate();
   const [mensaje, setMensaje] = useState({});
   const [form, setForm] = useState({
     Nombre_producto: "",
@@ -54,8 +53,22 @@ export const FormularioPro = () => {
         }
       };
       await axios.post(url, { ...form, id_tienda: tiendaUsuario._id }, options);
-      setMensaje({ respuesta: "Producto registrado exitosamente", tipo: true });
-      navigate('/dashboard/buscar');
+      
+      // Mostrar mensaje de éxito con SweetAlert
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Producto registrado exitosamente",
+        showConfirmButton: false,
+        timer: 2100
+      });
+
+      // Limpia el formulario después del registro exitoso
+      setForm({
+        Nombre_producto: "",
+        Categoria: "",
+      });
+
     } catch (error) {
       console.error(error);
       setMensaje({ respuesta: error.response?.data?.msg, tipo: false });
