@@ -1,8 +1,17 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link, Navigate, Outlet, useLocation } from 'react-router-dom'
 
 
 const Dashboard = () => {
+    const [propietario, setPropietario] = useState(null);
+
+    useEffect(() => {
+        // Obtener el valor de propietario desde localStorage
+        const propietarioLocalStorage = localStorage.getItem('propietario');
+        console.log('Valor recuperado de localStorage:', propietarioLocalStorage);
+        // Convertir el valor a booleano
+        setPropietario(propietarioLocalStorage === 'true');
+    }, []);
     return (
         <div className="min-h-screen w-full flex justify-between items-start bg-[url('/public/images/paginalogin.png')] bg-no-repeat bg-cover bg-center">
             <div className="bg-gray-900 bg-opacity-90 p-10 rounded-lg shadow-lg w-11/12 max-w-md min-h-screen flex flex-col justify-start space-y-4">
@@ -16,13 +25,15 @@ const Dashboard = () => {
                     </li>
                     <li className="text-center">
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
-                            <Link to="/dashboard/listartienda">Buscar Tienda</Link>
+                            <Link to="/dashboard/buscar">
+                                Buscar Tienda
+                            </Link>
                         </div>
                     </li>
 
                     <li className="text-center">
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
-                            <Link to="/dashboard/confirmacion">
+                            <Link to={propietario ? "/dashboard/buscar" : "/dashboard/confirmacion"}>
                                 Registrar tienda
                             </Link>
                         </div>

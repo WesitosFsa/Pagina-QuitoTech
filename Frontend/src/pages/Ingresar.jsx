@@ -25,9 +25,12 @@ const Ingresar = () => {
         try {
             const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/login`
             const respuesta = await axios.post(url, form)
+            console.log('Respuesta del servidor:', respuesta.data);
 
             localStorage.setItem('token', respuesta.data.token)
             localStorage.setItem('id_usuario', respuesta.data._id)
+            localStorage.setItem('propietario', respuesta.data.propietario)
+            console.log(localStorage.getItem("propietario"))
             setAuth(respuesta.data)
             navigate('/dashboard')
         } catch (error) {
