@@ -76,23 +76,6 @@ const Ingresar = () => {
 
                                 <button className="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition duration-300">Ingresar</button>
                             </form>
-
-                            <div className="mt-6 text-center text-gray-400">
-                                <p className="text-sm">O ingresa con</p>
-                            </div>
-
-                            <div className="mt-4 flex flex-col space-y-3">
-                                <button className="bg-gray-800 border border-gray-700 py-2 w-full rounded-lg flex justify-center items-center text-sm text-gray-400 hover:bg-gray-700 transition duration-300">
-                                    <img className="w-5 mr-2" src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google" />
-                                    Ingresar con Google
-                                </button>
-
-                                <button className="bg-gray-800 border border-gray-700 py-2 w-full rounded-lg flex justify-center items-center text-sm text-gray-400 hover:bg-gray-700 transition duration-300">
-                                    <img className="w-5 mr-2" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
-                                    Ingresar con Facebook
-                                </button>
-                            </div>
-
                             <div className="mt-6 text-center text-gray-400 text-xs">
                                 <Link to="/forgot/id" className="underline hover:text-gray-300">Olvidaste tu contraseña?</Link>
                             </div>
