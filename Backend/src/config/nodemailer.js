@@ -199,7 +199,7 @@ const sendMailToRecoveryPasswordAd = async(userMail,token)=>{
         <div class="container">
             <h1>Sistema de Gestión de Tiendas (Tiendas Quito 🛒 🏬)</h1>
             <hr>
-            <a href="${process.env.URL_FRONTEND}/recuperar-password/${token}">Clic para reestablecer tu contraseña</a>
+            <a href="${process.env.URL_FRONTEND}recuperar-password/${token}">Clic para reestablecer tu contraseña</a>
             <hr>
             <footer><b>¡TeamKhaos te da la Bienvenida!</b></footer>
         </div>
