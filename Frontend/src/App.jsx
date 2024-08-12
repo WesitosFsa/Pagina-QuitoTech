@@ -10,6 +10,7 @@ import { PrivateRoute } from './routes/PrivateRoute.jsx'
 import Forgot from './pages/Forgot.jsx'
 import { NoEncontrada } from './pages/NoEncontrada.jsx';
 import { Confirmar } from './pages/ConfirmarEmail';
+import { Confirmartienda } from './pages/confirmartienda.jsx';
 import Restablecer from './pages/Restablecer';
 import Listar from './pages/Listar.jsx'
 import Crear from './pages/Crear.jsx'
@@ -31,6 +32,7 @@ function App() {
             <Route path='ingresar' element={<Ingresar/>}/>
             <Route path='registrar' element={<Registrar/>}/>
             <Route path='usuario/confirmar/:token' element={<Confirmar/>}/>
+            <Route path='/confirmartienda/:tokentienda' element={<Confirmartienda/>}/>
             <Route path='forgot/:id' element={<Forgot/>}/>
             <Route path='recuperar-password/:token' element={<Restablecer />} />
             <Route path='dashboard' element={<Dashboard />} />
