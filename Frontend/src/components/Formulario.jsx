@@ -49,6 +49,9 @@ export const Formulario = ({ tienda }) => {
                     icon: 'success',
                     confirmButtonText: 'Aceptar'
                 });
+                
+                localStorage.clear();
+
                 setMensaje({ respuesta: "La solicitud fue enviada, pronto recibirás una notificación", tipo: true });
             }
         } catch (error) {
