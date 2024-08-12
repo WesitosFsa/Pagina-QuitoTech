@@ -9,6 +9,7 @@ const detalleProducto = async(req,res)=>{
     const producto = await Producto.findById(id).populate('Nombre_producto','id_tienda')
     res.status(200).json(producto)
 }
+
 // Método para crear el producto
 const registrarProducto = async (req,res)=>{
     const {id_tienda} = req.body
@@ -16,6 +17,7 @@ const registrarProducto = async (req,res)=>{
     const producto = await Producto.create(req.body)
     res.status(200).json({msg:`Su producto se registró exitosamente! ${producto._id}`,producto})
 }
+
 // Método para actualizar el producto
 const actualizarProducto = async(req,res)=>{
     const {id} = req.params
@@ -24,6 +26,7 @@ const actualizarProducto = async(req,res)=>{
     await Producto.findByIdAndUpdate(req.params.id,req.body)
     res.status(200).json({msg:"El producto se actualizó satisfactoriamente!!!"})
 }
+
 // Método para eliminar el producto
 const eliminarProducto = async(req,res)=>{
     const {id} = req.params
@@ -32,16 +35,28 @@ const eliminarProducto = async(req,res)=>{
     await Producto.findByIdAndDelete(req.params.id)
     res.status(200).json({msg:"Producto eliminado exitosamente"})
 }
+
 // Método para cambiar el estado del producto
-const cambiarEstado = async(req,res)=>{
+const cambiarEstado = async (req, res) => {
+    try {
+      const producto = await Producto.findById(req.params.id);
+  
+      if (!producto) {
+        return res.status(404).json({ msg: 'Producto no encontrado' });
+      }
+  
+      // Alternar el estado
+      producto.Estado = !producto.Estado;
+      await producto.save();
+  
+      res.json({ msg: 'El estado del producto se ha modificado', Estado: producto.Estado });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ msg: 'Error en el servidor' });
+    }
+  };
 
-    await Producto.findByIdAndUpdate(req.params.id,{Estado:false})
-    res.status(200).json({msg:"El estado del producto se ha modificado."})
-}
-
-
-
-
+// Exportaciones
 export {
     detalleProducto,
     registrarProducto,
