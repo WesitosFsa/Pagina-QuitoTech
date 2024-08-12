@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ListarProductosPorCategoria from "../components/Productos/ProductosCategoria.jsx";
+import ListarProductosPorCategoria from "../components/TablaProductosNames.jsx";
 import ListarProductosPorTienda from "../components/TablaProductosg.jsx";
 import { Link } from "react-router-dom";
 const AdministrarProducto = () => {
