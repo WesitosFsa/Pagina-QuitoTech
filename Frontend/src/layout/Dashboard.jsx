@@ -39,13 +39,8 @@ const Dashboard = () => {
                     <li className="text-center">
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
                             <Link to={propietario ? "/dashboard/administrartienda" : "/dashboard/confirmacion"}>
-                                Registrar tienda
+                                Registrar tienda / Administrar
                             </Link>
-                        </div>
-                    </li>
-                    <li className="text-center">
-                        <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
-                            <Link to="/" onClick={() => { localStorage.clear() }}>Salir del Sistema</Link>
                         </div>
                     </li>
                 </ul>
@@ -65,6 +60,9 @@ const Dashboard = () => {
                         <img src={logoGamer} alt="logo-gamer" className="object-contain w-full h-full" />
                     </div>
                 </div>
+            </div>
+            <div className="absolute bottom-4 left-4">
+                    <Link to="/" onClick={() => { localStorage.clear() }}><img src="/public/images/salida.png" alt="Volver" className="w-16 h-16" /></Link>
             </div>
         </div>
     );

@@ -39,6 +39,9 @@ const Listar = () => {
           <Tabla />
           </div>
         </div>
+        <div className="absolute bottom-4 left-4">
+                    <Link to="/" onClick={() => { localStorage.clear() }}><img src="/public/images/salida.png" alt="Volver" className="w-16 h-16" /></Link>
+        </div>
       </div>
     </>
   );
