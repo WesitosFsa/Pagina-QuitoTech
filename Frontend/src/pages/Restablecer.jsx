@@ -27,13 +27,16 @@ const Restablecer = () => {
         try {
             const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/nuevo-password/${token}`;
             const respuesta = await axios.post(url, form);
-            setForm({});
+            setForm({
+                password: "",
+                confirmpassword: ""
+            });
             setMensaje({ respuesta: respuesta.data.msg, tipo: true });
             setTimeout(() => {
                 navigate('/ingresar');
             }, 3000);
         } catch (error) {
-            setMensaje({ respuesta: error.response.data.msg, tipo: false });
+            setMensaje({ respuesta: error.response?.data?.msg || 'Error desconocido', tipo: false });
         }
     };
 
@@ -44,13 +47,13 @@ const Restablecer = () => {
             setTokenBack(true);
             setMensaje({ respuesta: respuesta.data.msg, tipo: true });
         } catch (error) {
-            setMensaje({ respuesta: error.response.data.msg, tipo: false });
+            setMensaje({ respuesta: error.response?.data?.msg || 'Error desconocido', tipo: false });
         }
     };
 
     useEffect(() => {
         verifyToken();
-    }, []);
+    }, [token]);
 
     return (
         <div className="min-h-screen w-full flex justify-center items-center bg-[url('/public/images/paginalogin.png')] bg-no-repeat bg-cover bg-center">
