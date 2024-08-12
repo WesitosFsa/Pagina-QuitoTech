@@ -1,12 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ListarProductosPorCategoria from "../components/TablaProductosNames.jsx";
 import ListarProductosPorTienda from "../components/TablaProductosg.jsx";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 const AdministrarProducto = () => {
   const [mostrarTabla, setMostrarTabla] = useState(null);
+  const [productos, setProductos] = useState([]);
+  const [mensaje, setMensaje] = useState({});
 
   const handleShowTable = (tipo) => {
     setMostrarTabla(tipo);
+  };
+
+  const handleStatus = async (id) => {
+    const token = localStorage.getItem('token');
+    try {
+      const confirmar = window.confirm("¿Estás seguro de actualizar el estado de este producto?");
+      if (confirmar) {
+        const url = `${import.meta.env.VITE_BACKEND_URL}/producto/estado/${id}`;
+        const options = {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          }
+        };
+        const response = await axios.post(url, {}, options);
+        
+        // Actualiza el estado del producto en el frontend
+        const productosActualizados = productos.map(producto => 
+          producto._id === id ? { ...producto, Estado: !producto.Estado } : producto
+        );
+        setProductos(productosActualizados);
+
+        // Mostrar mensaje
+        setMensaje({ respuesta: response.data?.msg, tipo: false });
+        setTimeout(() => {
+          setMensaje({});
+        }, 2000);
+      }
+    } catch (error) {
+      setMensaje({ respuesta: error.response.data?.msg, tipo: true });
+    }
   };
 
   return (
@@ -30,7 +65,7 @@ const AdministrarProducto = () => {
             <h1 className="font-black text-4xl text-gray-200">Actualizar Producto</h1>
             <hr className="my-4" />
             <p className="text-gray-200 mb-4">
-              Dentro de aquí podrás modificar el estado de tu productos asi como su categoria y nombre
+              Dentro de aquí podrás modificar el estado de tus productos así como su categoría y nombre.
             </p>
             <div className="flex justify-between">
               <button
@@ -43,11 +78,11 @@ const AdministrarProducto = () => {
                 onClick={() => handleShowTable('categoria')}
                 className="bg-blue-500 px-3 py-2 text-slate-300 uppercase font-bold rounded-lg hover:bg-gray-900 cursor-pointer transition-all"
               >
-                Actualizar nombre y categoria del producto
+                Actualizar nombre y categoría del producto
               </button>
             </div>
             {mostrarTabla === 'categoria' && <ListarProductosPorCategoria />}
-            {mostrarTabla === 'nombreTienda' && <ListarProductosPorTienda />}
+            {mostrarTabla === 'nombreTienda' && <ListarProductosPorTienda productos={productos} handleStatus={handleStatus} setProductos={setProductos} />}
           </div>
         </div>
       </div>
@@ -56,3 +91,5 @@ const AdministrarProducto = () => {
 };
 
 export default AdministrarProducto;
+
+
