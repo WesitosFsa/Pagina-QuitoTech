@@ -1,14 +1,22 @@
 import { useContext, useEffect, useState } from 'react'
-import { Link, Navigate, Outlet, useLocation } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import logoGamer from '../assets/gamer.png';
 
 const Dashboard = () => {
     const [propietario, setPropietario] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const propietarioLocalStorage = localStorage.getItem('propietario');
-        setPropietario(propietarioLocalStorage === 'true');
-    }, []);
+        const token = localStorage.getItem('token');
+        
+        // Verifica si el usuario tiene un token y si es propietario
+        if (!token || propietarioLocalStorage !== 'true') {
+            navigate('/ingresar'); // Redirige si no cumple con las condiciones
+        } else {
+            setPropietario(true);
+        }
+    }, [navigate]);
 
     return (
         <div className="min-h-screen w-full flex justify-between items-start bg-[url('/public/images/paginalogin.png')] bg-no-repeat bg-cover bg-center">
@@ -23,26 +31,21 @@ const Dashboard = () => {
                     </li>
                     <li className="text-center">
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
-                            <Link to="/dashboard/buscar">
+                            <Link to="/dashboard/listartienda">
                                 Buscar Tienda
                             </Link>
                         </div>
                     </li>
                     <li className="text-center">
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
-                            <Link to={propietario ? "/dashboard/buscar" : "/dashboard/confirmacion"}>
+                            <Link to={propietario ? "/dashboard/administrartienda" : "/dashboard/confirmacion"}>
                                 Registrar tienda
                             </Link>
                         </div>
                     </li>
                     <li className="text-center">
-                        <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
-                            <Link to="/dashboard/administrartienda">Administrar Tienda</Link>
-                        </div>
-                    </li>
-                    <li className="text-center">
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
-                            <Link to="/" onClick={() => { localStorage.removeItem('token') }}>Salir del Sistema</Link>
+                            <Link to="/" onClick={() => { localStorage.clear() }}>Salir del Sistema</Link>
                         </div>
                     </li>
                 </ul>

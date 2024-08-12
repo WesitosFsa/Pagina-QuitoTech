@@ -13,11 +13,6 @@ const Crear = () => {
                 <Link to="/dashboard">Inicio</Link>
                 </div>
             </li>
-            <li className="text-center">
-                <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
-                <Link to="/dashboard/crearproducto">Registro Productos</Link>
-                </div>
-            </li>
         </ul>
     </div>
     <div className="flex-grow flex justify-center items-center">
