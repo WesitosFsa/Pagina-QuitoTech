@@ -31,7 +31,7 @@ function App() {
             <Route path='registrar' element={<Registrar/>}/>
             <Route path='usuario/confirmar/:token' element={<Confirmar/>}/>
             <Route path='forgot/:id' element={<Forgot/>}/>
-            <Route path='recuperar-password/:token' element={<Restablecer />} />
+            <Route path='/usuario/recuperar-password/:token' element={<Restablecer />} />
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='/productos' element={<Productos/>}/>
             <Route path='dashboard/listar' element={<Listar />} />

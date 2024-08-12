@@ -17,7 +17,7 @@ const [mensaje, setMensaje] = useState({})
     const handleSubmit = async(e) => {
       e.preventDefault()
       try {
-          const url = `${import.meta.env.VITE_BACKEND_URL}/recuperar-password`
+          const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/recuperar-password`
           const respuesta = await axios.post(url,mail)
           setMensaje({respuesta:respuesta.data.msg,tipo:true})
           setMail("")

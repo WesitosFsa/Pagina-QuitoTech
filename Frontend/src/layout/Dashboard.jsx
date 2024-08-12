@@ -36,7 +36,7 @@ const Dashboard = () => {
                     </li>
                     <li className="text-center">
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
-                            <Link to="/" onClick={()=>{localStorage.removeItem('token')}}>Salir del Sistema</Link>
+                            <Link to="/" onClick={()=>{localStorage.clear()}}>Salir</Link>
                         </div>
                     </li>
                 </ul>
