@@ -1,20 +1,18 @@
 import { useContext, useEffect, useState } from 'react'
 import { Link, Navigate, Outlet, useLocation } from 'react-router-dom'
-
+import logoGamer from '../assets/gamer.png';
 
 const Dashboard = () => {
     const [propietario, setPropietario] = useState(null);
 
     useEffect(() => {
-        // Obtener el valor de propietario desde localStorage
         const propietarioLocalStorage = localStorage.getItem('propietario');
-        console.log('Valor recuperado de localStorage:', propietarioLocalStorage);
-        // Convertir el valor a booleano
         setPropietario(propietarioLocalStorage === 'true');
     }, []);
+
     return (
         <div className="min-h-screen w-full flex justify-between items-start bg-[url('/public/images/paginalogin.png')] bg-no-repeat bg-cover bg-center">
-            <div className="bg-gray-900 bg-opacity-90 p-10 rounded-lg shadow-lg w-11/12 max-w-md min-h-screen flex flex-col justify-start space-y-4">
+            <div className="bg-gray-900 bg-opacity-90 p-6 rounded-lg shadow-lg w-11/12 max-w-md min-h-screen flex flex-col justify-start space-y-4">
                 <h2 className='text-4xl font-black text-center text-white'>QuitoTech</h2>
                 <hr className="border-blue-500" />
                 <ul className="mt-5 flex flex-col space-y-4">
@@ -30,7 +28,6 @@ const Dashboard = () => {
                             </Link>
                         </div>
                     </li>
-
                     <li className="text-center">
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
                             <Link to={propietario ? "/dashboard/buscar" : "/dashboard/confirmacion"}>
@@ -38,51 +35,36 @@ const Dashboard = () => {
                             </Link>
                         </div>
                     </li>
-                    
                     <li className="text-center">
-
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
                             <Link to="/dashboard/administrartienda">Administrar Tienda</Link>
                         </div>
                     </li>
                     <li className="text-center">
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl">
-                            <Link to="/" onClick={()=>{localStorage.removeItem('token')}}>Salir del Sistema</Link>
+                            <Link to="/" onClick={() => { localStorage.removeItem('token') }}>Salir del Sistema</Link>
                         </div>
                     </li>
                 </ul>
             </div>
             <div className="flex-grow flex justify-center items-center">
-                <div className="bg-gray-900 bg-opacity-90 p-10 rounded-lg shadow-lg w-11/12 flex flex-wrap gap-6 border border-gray-700 mt-10 mb-10 ml-10 mr-5">
-                    <hr className='my-4 w-full' />
-                    <h2 className='text-4xl font-black text-center text-white'>Lista de productos principales</h2>
-                    <hr className='my-4 w-full' />
-                    <div className='text-center shadow-2xl p-10 rounded-xl md:w-72 lg:w-96 bg-purple-600 transition-transform transform hover:scale-105'>
-                        <h2 className='text-lg font-medium pt-8 pb-2 text-white'>COMPONENTES PC</h2>
-                        <p className='py-4 text-white'>
-                            Encuentra los mejores componentes para personalizar y potenciar tu PC, adaptados a todas tus necesidades.
-                        </p>
-                        <p className='text-white py-1'>Tarjetas RAM</p>
-                        <p className='text-white py-1'>Microprocesadores</p>
-                        <p className='text-white py-1'>Ventiladores</p>
-                        <p className='text-white py-1'>Fuente de Energía</p>
-                    </div>
-
-                    <div className='text-center shadow-2xl p-10 rounded-xl md:w-72 lg:w-96 bg-purple-600 transition-transform transform hover:scale-105'>
-                        <h2 className='text-lg font-medium pt-8 pb-2 text-white'>PERIFÉRICOS</h2>
-                        <p className='py-4 text-white'>
-                            Mejora tu configuración con nuestra gama de periféricos, desde teclados y ratones hasta auriculares.
-                        </p>
-                        <p className='text-white py-1'>Teclados</p>
-                        <p className='text-white py-1'>Mouses</p>
-                        <p className='text-white py-1'>Auriculares</p>
-                        <p className='text-white py-1'>Micrófonos</p>
+                <div className="bg-gray-900 bg-opacity-90 p-6 rounded-lg shadow-lg w-full max-w-4xl flex flex-col items-center gap-4 border border-gray-700">
+                    <hr className='my-2 w-full border-gray-600' />
+                    <h2 className='text-3xl font-extrabold text-center text-white mb-1'>Conoce Más Sobre Nosotros</h2>
+                    <hr className='my-2 w-full border-gray-600' />
+                    <p className='text-white text-base mb-1'>
+                    ¡Bienvenido a nuestra plataforma, el lugar ideal para los apasionados del gaming! Te ayudamos a encontrar las mejores tiendas especializadas en artículos gamer, desde componentes para PC hasta periféricos y videojuegos. Nuestra misión es conectar a jugadores con tiendas que ofrecen todo lo que necesitas. Compara productos, precios y servicios en nuestra base de datos, ya sea de tiendas locales o grandes cadenas. Si tienes una tienda de artículos gamer, regístrala con nosotros y haz que los gamers descubran tus productos y servicios, ampliando así tu alcance y visibilidad.
+                    </p>
+                    <p className='text-white text-base'>
+                        Explora, descubre y encuentra las mejores tiendas para mejorar tu experiencia de juego.<b>¡Sé bienvenido a nuestro sistema!</b>
+                    </p>
+                    <div className='relative mx-auto w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mt-4'>
+                        <img src={logoGamer} alt="logo-gamer" className="object-contain w-full h-full" />
                     </div>
                 </div>
             </div>
         </div>
-
     );
 };
 
-export default Dashboard
+export default Dashboard;
