@@ -23,17 +23,56 @@ export const Registrar = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+    
+        // Validaciones manuales
+        if (!form.nombre.trim()) {
+            setMensaje({ respuesta: 'El nombre es obligatorio', tipo: false });
+            return;
+        }
+        if (!form.apellido.trim()) {
+            setMensaje({ respuesta: 'El apellido es obligatorio', tipo: false });
+            return;
+        }
+        if (!form.direccion.trim()) {
+            setMensaje({ respuesta: 'La dirección es obligatoria', tipo: false });
+            return;
+        }
+        if (!/^[0-9]+$/.test(form.telefono)) {
+            setMensaje({ respuesta: 'El teléfono debe contener solo números', tipo: false });
+            return;
+        }
+        if (form.telefono.length < 10) {
+            setMensaje({ respuesta: 'El teléfono debe tener al menos 10 dígitos', tipo: false });
+            return;
+        }
+        if (!form.email.includes('@')) {
+            setMensaje({ respuesta: 'Debe ser un correo electrónico válido', tipo: false });
+            return;
+        }
+        if (form.password.length < 8) {
+            setMensaje({ respuesta: 'La contraseña debe tener al menos 8 caracteres', tipo: false });
+            return;
+        }
+    
         try {
             const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/registro`;
             const respuesta = await axios.post(url, form);
             setMensaje({ respuesta: respuesta.data.msg, tipo: true });
-            setForm({});
+            setForm({
+                nombre: "",
+                apellido: "",
+                direccion: "",
+                telefono: "",
+                email: "",
+                password: ""
+            });
             console.log(respuesta);
         } catch (error) {
             setMensaje({ respuesta: error.response?.data?.msg || 'Error desconocido', tipo: false });
             console.log(error);
         }
     };
+    
 
     return (
         <>

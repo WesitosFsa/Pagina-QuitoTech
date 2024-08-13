@@ -41,8 +41,6 @@ const Tablatienda = () => {
                 <th className="py-2 px-4 border-b border-gray-900 text-white">Nombre</th>
                 <th className="py-2 px-4 border-b border-gray-900 text-white">Dirección</th>
                 <th className="py-2 px-4 border-b border-gray-900 text-white">Estado</th>
-                <th className="py-2 px-4 border-b border-gray-900 text-white">ID Usuario</th>
-                <th className="py-2 px-4 border-b border-gray-900 text-white">ID Tienda</th> {/* Nueva columna para ID de la tienda */}
               </tr>
             </thead>
             <tbody>
@@ -55,11 +53,9 @@ const Tablatienda = () => {
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${tienda.Verificado ? 'bg-green-200 text-green-600'
                         : 'bg-red-200 text-red-600'
                     }`}>
-                      {tienda.Verificado ? "Activo" : "Inactivo"}
+                      {tienda.Verificado ? "Activa" : "Inactiva"}
                     </span>
                   </td>
-                  <td className="text-center py-2 px-4 border-b border-gray-900 text-white">{tienda.id_usuario?._id}</td>
-                  <td className="text-center py-2 px-4 border-b border-gray-900 text-white">{tienda._id}</td> {/* Mostrar ID de la tienda */}
                 </tr>
               ))}
             </tbody>  

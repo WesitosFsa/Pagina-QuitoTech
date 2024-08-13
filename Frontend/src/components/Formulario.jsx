@@ -69,7 +69,7 @@ export const Formulario = ({ tienda }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            {/* {Object.keys(mensaje).length > 0 && <Mensaje tipo={mensaje.tipo}>{mensaje.respuesta}</Mensaje>} */}
+            
             <div>
                 <label
                     htmlFor='Nombre_tienda'

@@ -88,6 +88,7 @@ export const FormularioPro = () => {
           name='Nombre_producto'
           value={form.Nombre_producto}
           onChange={handleChange}
+          required
         />
       </div>
       <div>
@@ -98,6 +99,7 @@ export const FormularioPro = () => {
           className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
           value={form.Categoria}
           onChange={handleChange}
+          required
         >
           <option value="">Seleccionar Categoría</option>
           <option value="Mandos">Mandos</option>

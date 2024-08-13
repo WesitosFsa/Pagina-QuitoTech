@@ -153,6 +153,7 @@ const TablaproductosG = () => {
                       value={formData.Nombre_producto}
                       onChange={handleChange}
                       className="w-full p-2 border border-gray-600 rounded text-black" // Color de texto negro
+                      required
                     />
                   </div>
                   <div className="mb-4">
