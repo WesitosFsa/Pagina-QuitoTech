@@ -11,7 +11,7 @@ import ListarProductosPorTienda from '../../components/Productos/ProductosTienda
 jest.mock('../../components/Productos/ProductosCategoria', () => () => <div>Lista por Categoría</div>);
 jest.mock('../../components/Productos/ProductosTienda', () => () => <div>Lista por Tienda</div>);
 
-describe('BuscarProducto Component', () => {
+describe('BuscarProducto Componente', () => {
   test('renderiza correctamente y muestra el texto de bienvenida', () => {
     render(
       <MemoryRouter>

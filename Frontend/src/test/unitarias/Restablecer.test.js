@@ -14,7 +14,7 @@ describe('Restablecer Component', () => {
         jest.clearAllMocks();
     });
 
-    test('renders the Restablecer component and checks form fields', () => {
+    test('representa el componente Retablecer y verifica los campos del formulario', () => {
         render(
             <MemoryRouter initialEntries={['/restablecer/12345']}>
                 <Routes>
@@ -31,7 +31,7 @@ describe('Restablecer Component', () => {
         expect(inputConfirmPassword).toBeInTheDocument();
     });
 
-    test('handles input changes correctly', () => {
+    test('maneja los cambios de entrada correctamente', () => {
         render(
             <MemoryRouter initialEntries={['/restablecer/12345']}>
                 <Routes>
@@ -53,7 +53,7 @@ describe('Restablecer Component', () => {
         expect(inputConfirmPassword.value).toBe('NewPassword123');
     });
 
-    test('renders the component with correct styles', () => {
+    test('renderiza el componente con los estilos correctos', () => {
         render(
             <MemoryRouter initialEntries={['/restablecer/12345']}>
                 <Routes>
@@ -75,7 +75,7 @@ describe('Restablecer Component', () => {
         );
     });
 
-    test('submits the form correctly', async () => {
+    test('envía el formulario correctamente', async () => {
         axios.post.mockResolvedValue({ data: { msg: 'Contraseña cambiada con éxito' } });
 
         render(

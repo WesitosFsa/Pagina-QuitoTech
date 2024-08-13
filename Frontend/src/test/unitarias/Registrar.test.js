@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { Registrar } from '../../pages/Registrar';
 
 describe('Registrar Component', () => {
-  test('renders the Registrar component and checks form fields', () => {
+  test('representa el componente Registrar y verifica los campos del formulario', () => {
     render(
       <MemoryRouter>
         <Registrar />
@@ -21,7 +21,7 @@ describe('Registrar Component', () => {
     expect(screen.getByLabelText(/contraseña/i)).toBeInTheDocument();
   });
 
-  test('handles input changes correctly', () => {
+  test('maneja los cambios de entrada correctamente', () => {
     render(
       <MemoryRouter>
         <Registrar />
@@ -39,7 +39,7 @@ describe('Registrar Component', () => {
     expect(inputApellido.value).toBe('Perez');
   });
 
-  test('renders the component with correct styles', () => {
+  test('renderiza el componente con los estilos correctos', () => {
     render(
       <MemoryRouter>
         <Registrar />
