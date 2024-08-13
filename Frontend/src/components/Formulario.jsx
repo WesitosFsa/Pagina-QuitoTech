@@ -1,13 +1,11 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import Mensaje from './Alertas';
 
 export const Formulario = ({ tienda }) => {
 
     const navigate = useNavigate();
-    const [mensaje, setMensaje] = useState({});
 
     const [form, setForm] = useState({
         Nombre_tienda: tienda?.Nombre_tienda ?? "",
@@ -26,6 +24,30 @@ export const Formulario = ({ tienda }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(form);
+
+        // Validar email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(form.email)) {
+            Swal.fire({
+                title: 'Error',
+                text: 'El correo electrónico no es válido',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+            return;
+        }
+
+        const storedEmail = localStorage.getItem('email');
+        if (form.email !== storedEmail) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Email incorrecto',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+            return;
+        }
+
         try {
             const token = localStorage.getItem('token');
             const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/solicitud/`;
@@ -49,15 +71,11 @@ export const Formulario = ({ tienda }) => {
                     icon: 'success',
                     confirmButtonText: 'Aceptar'
                 });
-                
-                localStorage.clear();
 
-                setMensaje({ respuesta: "La solicitud fue enviada, pronto recibirás una notificación", tipo: true });
+                localStorage.clear();
             }
         } catch (error) {
             console.log(error);
-            // Manejo de errores, opcional
-            setMensaje({ respuesta: error.response?.data?.msg || 'Error al enviar la solicitud', tipo: false });
             Swal.fire({
                 title: 'Error',
                 text: error.response?.data?.msg || 'Hubo un problema al enviar tu solicitud.',
@@ -69,7 +87,6 @@ export const Formulario = ({ tienda }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            
             <div>
                 <label
                     htmlFor='Nombre_tienda'

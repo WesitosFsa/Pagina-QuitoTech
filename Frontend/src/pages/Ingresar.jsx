@@ -30,6 +30,7 @@ const Ingresar = () => {
             localStorage.setItem('token', respuesta.data.token)
             localStorage.setItem('id_usuario', respuesta.data._id)
             localStorage.setItem('propietario', respuesta.data.propietario)
+            localStorage.setItem('email', respuesta.data.email)
             console.log(localStorage.getItem("propietario"))
             setAuth(respuesta.data)
             navigate('/dashboard')
