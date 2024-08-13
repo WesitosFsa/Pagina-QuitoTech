@@ -9,9 +9,13 @@
     "preview": "vite preview",
     "test": "jest"
   },
-  "jest":  {
-    "setupFilesAfterEnv": ["<rootDir>/src/setupTests.js"],
-    "setupFiles": ["<rootDir>/src/__mocks__/env.js"],
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/__mocks__/env.js"
+    ],
     "testEnvironment": "jsdom",
     "transform": {
       "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",

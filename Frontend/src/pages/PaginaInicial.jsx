@@ -12,7 +12,7 @@ import logoWeb3 from '../assets/web3.png';
 import logoWeb4 from '../assets/web4.png';
 import logoWeb5 from '../assets/web5.png';
 import logoWeb6 from '../assets/web6.png';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export const PaginaInicial = () => {

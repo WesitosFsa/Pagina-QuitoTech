@@ -9,6 +9,7 @@ import monitores from '../assets/monitores.webp';
 import audio from '../assets/audio.webp';
 import almacenamiento from '../assets/almacenamiento.webp';
 import { useState } from 'react';
+import React from "react";
 
 export const Productos = () => {
   const [darkMode, setDarkMode] = useState(true);
