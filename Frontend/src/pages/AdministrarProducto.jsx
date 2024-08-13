@@ -18,7 +18,8 @@ const AdministrarProducto = () => {
     try {
       const confirmar = window.confirm("¿Estás seguro de actualizar el estado de este producto?");
       if (confirmar) {
-        const url = `${import.meta.env.VITE_BACKEND_URL}/producto/estado/${id}`;
+        const url = `${process.env.VITE_BACKEND_URL}/producto/estado/${id}`;
+
         const options = {
           headers: {
             'Content-Type': 'application/json',

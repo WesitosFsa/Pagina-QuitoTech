@@ -6,7 +6,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest"
+  },
+  "jest":  {
+    "setupFilesAfterEnv": ["<rootDir>/src/setupTests.js"],
+    "setupFiles": ["<rootDir>/src/__mocks__/env.js"],
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "jest-transform-stub"
+    }
   },
   "dependencies": {
     "@heroicons/react": "^2.0.13",
@@ -16,13 +26,22 @@
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.6.1",
     "sweetalert2": "^11.12.4"
-    
   },
   "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
+    "@babel/preset-react": "^7.24.7",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.0",
+    "@types/jest": "^29.5.12",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
     "autoprefixer": "^10.4.13",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-transform-stub": "^2.0.0",
     "postcss": "^8.4.20",
     "tailwindcss": "^3.2.4",
     "vite": "^4.0.0"

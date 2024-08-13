@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Mensaje from "../components/Alertas.jsx";
@@ -8,7 +10,7 @@ const TablaproductosG = ({ handleStatus, productos, setProductos }) => {
 
   const listarproductosIDtienda = async (tiendaId) => {
     try {
-      const url = `${import.meta.env.VITE_BACKEND_URL}/tienda/productos/${tiendaId}`;
+      const url = `${process.env.VITE_BACKEND_URL}/tienda/productos/${tiendaId}`;
       const options = {
         headers: {
           'Content-Type': 'application/json',
@@ -23,7 +25,8 @@ const TablaproductosG = ({ handleStatus, productos, setProductos }) => {
 
   const obtenerIdTienda = async (userId) => {
     try {
-      const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/tienda/${userId}`;
+      const url = `${process.env.VITE_BACKEND_URL}/usuario/tienda/${userId}`;
+
       const respuesta = await axios.get(url);
   
       if (respuesta.data.tienda && respuesta.data.tienda._id) {
