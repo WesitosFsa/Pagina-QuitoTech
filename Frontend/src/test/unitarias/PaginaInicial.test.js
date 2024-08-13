@@ -5,7 +5,7 @@ import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { PaginaInicial } from "../../pages/PaginaInicial"; // Ajusta la ruta según la estructura de tu proyecto
 
 describe('PaginaInicial Component', () => {
-  test('renders PaginaInicial component correctly', () => {
+  test('representa el componente PaginaInicial correctamente', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <Routes>

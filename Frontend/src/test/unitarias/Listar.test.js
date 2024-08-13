@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Listar from '../../pages/Listar'; // Ajusta la ruta según la estructura de tu proyect
 
-test('renders Listar component', () => {
+test('Renderiza el componente listar', () => {
   render(
     <MemoryRouter>
       <Listar />

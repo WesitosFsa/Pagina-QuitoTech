@@ -6,7 +6,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { NoEncontrada } from '../../pages/NoEncontrada';
 
 describe('NoEncontrada Component', () => {
-  test('renders the NoEncontrada component with correct content, ignoring images', () => {
+  test('renderiza el componente NoEncontrada con el contenido correcto, ignorando las imágenes', () => {
     render(
       <MemoryRouter>
         <NoEncontrada />
@@ -25,7 +25,7 @@ describe('NoEncontrada Component', () => {
     expect(link).toHaveAttribute('href', '/ingresar');
   });
 
-  test('renders the component with correct styles', () => {
+  test('renderiza el componente con los estilos correctos', () => {
     render(
       <MemoryRouter>
         <NoEncontrada />
