@@ -1,5 +1,6 @@
+import React, { useState, useContext } from 'react'
 import axios from 'axios'
-import { useState, useContext } from 'react'
+
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import Mensaje from '../components/Alertas'
@@ -23,7 +24,7 @@ const Ingresar = () => {
     const handleSubmit = async (e) => { 
         e.preventDefault()
         try {
-            const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/login`
+            const url = `${process.env.VITE_BACKEND_URL}/usuario/login`
             const respuesta = await axios.post(url, form)
             console.log('Respuesta del servidor:', respuesta.data);
 

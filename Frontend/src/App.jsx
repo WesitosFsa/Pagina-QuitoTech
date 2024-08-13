@@ -1,3 +1,4 @@
+import React from 'react'
 import './App.css'
 import { PaginaInicial } from './pages/PaginaInicial.jsx'
 import { Productos } from './pages/Productos.jsx'

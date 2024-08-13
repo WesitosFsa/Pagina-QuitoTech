@@ -1,30 +1,31 @@
+import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import Mensaje from "../components/Alertas.jsx";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const Forgot = () => {
-const [mensaje, setMensaje] = useState({})
-	const [mail, setMail] = useState({})
+  const [mensaje, setMensaje] = useState({});
+  const [mail, setMail] = useState({});
     
-    const handleChange = (e)=>{
-        setMail({
-            ...mail,
-            [e.target.name]:e.target.value
-        })
-    }
+  const handleChange = (e) => {
+    setMail({
+      ...mail,
+      [e.target.name]: e.target.value
+    });
+  };
 
-    const handleSubmit = async(e) => {
-      e.preventDefault()
-      try {
-          const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/recuperar-password`
-          const respuesta = await axios.post(url,mail)
-          setMensaje({respuesta:respuesta.data.msg,tipo:true})
-          setMail("")
-      } catch (error) { 
-          setMensaje({respuesta:error.response.data.msg,tipo:false})
-      }
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const url = `${process.env.VITE_BACKEND_URL}/usuario/recuperar-password`;
+      const respuesta = await axios.post(url, mail);
+      setMensaje({ respuesta: respuesta.data.msg, tipo: true });
+      setMail("");
+    } catch (error) { 
+      setMensaje({ respuesta: error.response.data.msg, tipo: false });
+    }
+  };
 
   return (
     <>
@@ -34,16 +35,17 @@ const [mensaje, setMensaje] = useState({})
             <h1 className="text-4xl font-bold mb-4 text-white text-center uppercase">
               ¿Olvidaste tu contraseña?
             </h1>
-            {Object.keys(mensaje).length>0 && <Mensaje tipo={mensaje.tipo}>{mensaje.respuesta}</Mensaje>}
+            {Object.keys(mensaje).length > 0 && <Mensaje tipo={mensaje.tipo}>{mensaje.respuesta}</Mensaje>}
             <small className="text-white block my-4 text-sm text-center">
               Para recuperarla, ingresa tu email
             </small>
             <form onSubmit={handleSubmit}>
               <div className="mb-1">
-                <label className="mb-2 block text-sm font-semibold text-white">
+                <label htmlFor="email" className="mb-2 block text-sm font-semibold text-white">
                   Email
                 </label>
                 <input
+                  id="email"
                   name="email"
                   onChange={handleChange}
                   className="w-full rounded-lg border border-gray-700 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 py-2 px-3 bg-gray-800 text-white"
