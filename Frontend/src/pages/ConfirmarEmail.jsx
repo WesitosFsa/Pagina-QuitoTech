@@ -1,5 +1,6 @@
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Mensaje from '../components/Alertas.jsx';
@@ -11,7 +12,7 @@ export const Confirmar = () => {
     const [mensaje, setMensaje] = useState({})
     const verifyToken = async () => {
         try {
-            const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/confirmar/${token}`
+            const url = `${process.env.VITE_BACKEND_URL}/usuario/confirmar/${token}`
             const respuesta = await axios.get(url)
             setMensaje({ respuesta: respuesta.data.msg, tipo: true })
         } catch (error) {
