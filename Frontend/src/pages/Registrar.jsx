@@ -1,3 +1,4 @@
+import React from 'react'
 import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -24,7 +25,7 @@ export const Registrar = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/registro`;
+            const url = `${process.env.VITE_BACKEND_URL}/usuario/registro`;
             const respuesta = await axios.post(url, form);
             setMensaje({ respuesta: respuesta.data.msg, tipo: true });
             setForm({});
