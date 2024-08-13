@@ -13,9 +13,8 @@ const Dashboard = () => {
         if (!token) {
             navigate('/ingresar'); // Redirige si no cumple con las condiciones
         }
-        
     }, []);
-
+    
 
     return (
         <div className="min-h-screen w-full flex justify-between items-start bg-[url('/public/images/paginalogin.png')] bg-no-repeat bg-cover bg-center">
@@ -38,7 +37,7 @@ const Dashboard = () => {
                     <li className="text-center">
                         <div className="text-white bg-blue-800 px-3 py-2 rounded-md text-xl hover:bg-blue-700">
                             <Link to={propietario ? "/dashboard/administrartienda" : "/dashboard/confirmacion"}>
-                                Registrar tienda / Administrar
+                            {propietario ? "Administrar tienda" : "Registrar tienda"}
                             </Link>
                         </div>
                     </li>
