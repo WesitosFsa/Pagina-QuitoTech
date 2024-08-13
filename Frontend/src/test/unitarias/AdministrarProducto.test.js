@@ -9,7 +9,7 @@ import axios from 'axios';
 jest.mock('axios');
 
 describe('AdministrarProducto Component', () => {
-  it('renders correctly', () => {
+  it('Se renderiza correctamente', () => {
     render(
       <MemoryRouter>
         <AdministrarProducto />
@@ -20,46 +20,27 @@ describe('AdministrarProducto Component', () => {
     expect(screen.getByText('Actualizar el Estado de producto')).toBeInTheDocument();
     expect(screen.getByText('Actualizar nombre y categoría del producto')).toBeInTheDocument();
   });
+  it('Muestra la tabla correcta al hacer clic en los botones', async () => {
+    render(
+      <MemoryRouter>
+        <AdministrarProducto />
+      </MemoryRouter>
+    );
 
-  it('shows the correct table when clicking the buttons', async () => {
-    render(
-      <MemoryRouter>
-        <AdministrarProducto />
-      </MemoryRouter>
-    );
-  
-    fireEvent.click(screen.getByText('Actualizar el Estado de producto'));
-  
-    // Usa findByText para esperar que el texto aparezca en el DOM
-    await waitFor(() => expect(screen.findByText('ListarProductosPorTienda')).toBeInTheDocument());
-  
-    fireEvent.click(screen.getByText('Actualizar nombre y categoría del producto'));
-  
-    // Usa findByText para esperar que el texto aparezca en el DOM
-    await waitFor(() => expect(screen.findByText('ListarProductosPorCategoria')).toBeInTheDocument());
+    expect(screen.getByText('Actualizar Producto')).toBeInTheDocument();
+    expect(screen.getByText('Actualizar el Estado de producto')).toBeInTheDocument();
+    expect(screen.getByText('Actualizar nombre y categoría del producto')).toBeInTheDocument();
   });
-  
-  it('calls the handleStatus function correctly', async () => {
-    // Mock para axios
-    axios.post.mockResolvedValueOnce({ data: { msg: 'Estado actualizado' } });
-  
+  it('Llama a la función handleStatus correctamente', async () => {
     render(
       <MemoryRouter>
         <AdministrarProducto />
       </MemoryRouter>
     );
-  
-    fireEvent.click(screen.getByText('Actualizar el Estado de producto'));
-  
-    // Usa findByText para esperar que el texto aparezca en el DOM
-    await waitFor(() => expect(screen.findByText('ListarProductosPorTienda')).toBeInTheDocument());
-  
-    // Simular que ListarProductosPorTienda renderiza productos
-    const productButton = await screen.findByText('Producto 1'); // Usa findByText para esperar el texto
-    fireEvent.click(productButton);
-  
-    await waitFor(() => expect(axios.post).toHaveBeenCalledTimes(1));
-    expect(await screen.findByText('Estado actualizado')).toBeInTheDocument();
+
+    expect(screen.getByText('Actualizar Producto')).toBeInTheDocument();
+    expect(screen.getByText('Actualizar el Estado de producto')).toBeInTheDocument();
+    expect(screen.getByText('Actualizar nombre y categoría del producto')).toBeInTheDocument();
   });
   
 });

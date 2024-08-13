@@ -17,7 +17,7 @@ export const FormularioPro = () => {
       try {
         const idUsuario = localStorage.getItem('id_usuario');
         setUserId(idUsuario);
-        const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/tienda/${idUsuario}`;
+        const url = `${process.env.VITE_BACKEND_URL}/usuario/tienda/${idUsuario}`;
         const respuesta = await axios.get(url);
         setTiendaUsuario(respuesta.data.tienda);
       } catch (error) {
@@ -45,7 +45,7 @@ export const FormularioPro = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const url = `${import.meta.env.VITE_BACKEND_URL}/producto/registro`;
+      const url = `${process.env.VITE_BACKEND_URL}/producto/registro`;
       const options = {
         headers: {
           'Content-Type': 'application/json',
