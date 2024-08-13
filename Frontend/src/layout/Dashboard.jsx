@@ -9,14 +9,13 @@ const Dashboard = () => {
     useEffect(() => {
         const propietarioLocalStorage = localStorage.getItem('propietario');
         const token = localStorage.getItem('token');
-        
-        // Verifica si el usuario tiene un token y si es propietario
-        if (!token || propietarioLocalStorage !== 'true') {
+        setPropietario(propietarioLocalStorage === 'true');
+        if (!token) {
             navigate('/ingresar'); // Redirige si no cumple con las condiciones
-        } else {
-            setPropietario(true);
         }
-    }, [navigate]);
+        
+    }, []);
+
 
     return (
         <div className="min-h-screen w-full flex justify-between items-start bg-[url('/public/images/paginalogin.png')] bg-no-repeat bg-cover bg-center">
