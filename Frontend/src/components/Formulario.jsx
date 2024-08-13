@@ -28,7 +28,7 @@ export const Formulario = ({ tienda }) => {
         console.log(form);
         try {
             const token = localStorage.getItem('token');
-            const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/solicitud/`;
+            const url = `${process.env.VITE_BACKEND_URL}/usuario/solicitud/`;
             const options = {
                 headers: {
                     'Content-Type': 'application/json',
